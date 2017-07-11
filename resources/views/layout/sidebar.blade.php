@@ -17,17 +17,17 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li>
-            <a href="#"><i class="fa fa-archive"></i> List Postingan
+            <a href="#"><i class="fa fa-archive"></i><span>List Postingan</span>
                 <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="{{url('pendaftar')}}"><i class="fa fa-circle-o"></i> Seluruh Posting</a></li>
-                <li><a href="{{url('datawawancara')}}"><i class="fa fa-circle-o"></i> Diposting</a></li>
+                <li><a href="{{route('admin.all')}}"><i class="fa fa-circle-o"></i> Seluruh Posting</a></li>
+                <li><a href="{{route('admin.published')}}"><i class="fa fa-circle-o"></i> Diposting</a></li>
             </ul>
         </li>
-        <li><a href="{{url('/wawancara')}}"><i class="fa fa-plus-square"></i> <span>Tambah Postingan</span></a></li>
+        <li><a href="{{route('admin.add')}}"><i class="fa fa-plus-square"></i> <span>Tambah Postingan</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

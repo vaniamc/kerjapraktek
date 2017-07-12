@@ -13,96 +13,42 @@
 						<h4 class="section-title"><span>Telkom Corporate University</span>Latest News</h4>
 						<div class="row">
 							<div class="col-md-12">
-								<!-- end list post item -->
+								@foreach($blog as $key => $row)
+								<!-- start list post item -->
 								<div class="list-post">
 									<div class="list-post-container">
-										<a href="blog"><img src="images/maung.jpeg" alt=""></a>
+										<a href="blog">
+											@if($row->blog_picture == NULL)
+											<img src="{{asset('images/blog/none.jpg')}}" alt="your image" class="img-responsive" />
+											@else
+											<img src="{{asset('images/blog/'.$row->blog_picture)}}" alt="your image" class="img-responsive" />
+											@endif
+										</a>
 										<div class="post-cat2"><span style="background-color: #d00b06">Transport</span></div>
 									</div>
 									<div class="list-post-body">
-										<h2><a href="blog">Make Stories Come Alive with Jodi Harvey-Brown Book</a></h2>
+										<h2><a href="{{url('blog',$row->blog_id)}}">{{$row->blog_title}}</a></h2>
 										<div class="post-meta">
-											<span>27. april 2015</span> <span>123 views</span>
+											<?php
+                                                $y = substr($row->created_at, 0, 4);
+                                                $m = substr($row->created_at, 5, 2);
+                                                $d = substr($row->created_at, 8, 2);
+                                            ?>
+                                            <span>{{$d}}/{{$m}}/{{$y}}</span>
 										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusamus accusantium. Adipisci accusamus accusantium. Adipisci accusamus accusantium.</p>
+										<p>
+											<?php
+                                                $text = strip_tags($row->blog_content);
+                                                $edited = str_limit($text, 100);
+                                                echo $edited;
+                                            ?>
+										</p>
+										<div class="read-more pull-right"><a href="{{url('blog',$row->blog_id)}}" class="btn btn-default btn-secondary">read more</a></div>
 									</div>
+
 								</div>
 								<!-- end list post item -->
-								<!-- end list post item -->
-								<div class="list-post">
-									<div class="list-post-container">
-										<a href="blog"><img src="images/demo/1200x800-12.jpg" alt=""></a>
-										<div class="post-cat2"><span style="background-color: #d00b06">Gadgets</span></div>
-									</div>
-									<div class="list-post-body">
-										<h2><a href="blog">Unbelievable Anamorphic Sculptures by Jonty Hurwitz</a></h2>
-										<div class="post-meta">
-											<span>1. jule 2015</span>  <span>54 views</span>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusamus accusantium. Adipisci accusamus accusantium. Adipisci accusamus accusantium.</p>
-									</div>
-								</div>
-								<!-- end list post item -->
-								<!-- end list post item -->
-								<div class="list-post">
-									<div class="list-post-container">
-										<a href="blog"><img src="images/demo/1200x800-11.jpg" alt=""></a>
-										<div class="post-cat2"><span style="background-color: #d00b06">Gadgets</span></div>
-									</div>
-									<div class="list-post-body">
-										<h2><a href="blog">POLAR BEAR BEATPORT LABEL IS OVER</a></h2>
-										<div class="post-meta">
-											<span>11. august 2015</span> <span>54 views</span>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusamus accusantium. Adipisci accusamus accusantium. Adipisci accusamus accusantium.</p>
-									</div>
-								</div>
-								<!-- end list post item -->
-								<!-- end list post item -->
-								<div class="list-post">
-									<div class="list-post-container">
-										<a href="blog"><img src="images/demo/1200x800-10.jpg" alt=""></a>
-										<div class="post-cat2"><span style="background-color: #d00b06">Gadgets</span></div>
-									</div>
-									<div class="list-post-body">
-										<h2><a href="blog">THE VIEW FROM A VILLA</a></h2>
-										<div class="post-meta">
-											<span>17. august 2015</span> <span>54 views</span>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusamus accusantium. Adipisci accusamus accusantium. Adipisci accusamus accusantium.</p>
-									</div>
-								</div>
-								<!-- end list post item -->
-								<!-- end list post item -->
-								<div class="list-post">
-									<div class="list-post-container">
-										<a href="blog"><img src="images/demo/1200x800-14.jpg" alt=""></a>
-										<div class="post-cat2"><span style="background-color: #d00b06">Gadgets</span></div>
-									</div>
-									<div class="list-post-body">
-										<h2><a href="blog">IN NYC WITH EDDIE BORGO X TARGET</a></h2>
-										<div class="post-meta">
-											<span>21. august 2015</span> <span>54 views</span>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusamus accusantium. Adipisci accusamus accusantium. Adipisci accusamus accusantium.</p>
-									</div>
-								</div>
-								<!-- end list post item -->
-								<!-- end list post item -->
-								<div class="list-post">
-									<div class="list-post-container">
-										<a href="blog"><img src="images/demo/1200x800-8.jpg" alt=""></a>
-										<div class="post-cat2"><span style="background-color: #d00b06">Gadgets</span></div>
-									</div>
-									<div class="list-post-body">
-										<h2><a href="blog">SO YOU WANT TO BE A TRAVEL BLOGGER, DO YOU?</a></h2>
-										<div class="post-meta">
-											<span>1. september 2015</span>  <span>54 views</span>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusamus accusantium. Adipisci accusamus accusantium. Adipisci accusamus accusantium.</p>
-									</div>
-								</div>
-								<!-- end list post item -->
+								@endforeach
 							</div>
 						</div>
 					</div>
@@ -203,7 +149,7 @@
 						<!-- widget advertisement -->
 						<div class="widget-container widget_tag_cloud">
 							<h4 class="section-title"><a href="http://news.telkom.co.id/index.php?act=news&cat_id=34&id=44661">Socio Digi Leaders</a></h4>
-							<img src="images/ads.jpeg" href="http://news.telkom.co.id/index.php?act=news&cat_id=34&id=44661" alt="" /> <br>
+							<img src="{{asset('images/ads.jpeg')}}" href="http://news.telkom.co.id/index.php?act=news&cat_id=34&id=44661" alt="" /> <br>
 
 						</div>
 						<!-- end widget advertisement -->

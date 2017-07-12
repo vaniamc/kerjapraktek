@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="images/logo1.png">
+    <link rel="icon" href="{{asset('images/logo1.png')}}">
     <title>Telkom CorpU News Center</title>
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -56,7 +56,7 @@
 
             <ul class="menu" id="main-mobile-menu">
                 <li>
-                    <img width="150" id="logo" src="images/logo2.png" alt="logo">
+                    <img width="150" id="logo" src="{{asset('images/logo2.png')}}" alt="logo">
                 </li>
                 <li>
                     <a href="{{url('index')}}"><i class="fa fa-home"></i> Home </a><span class="sub_menu_toggle"></span>
@@ -64,9 +64,25 @@
                 <li>
                     <a href="{{url('contact')}}"><i class="fa fa-phone"></i> Contact Us </a><span class="sub_menu_toggle"></span>
                 </li>
-                <li class="search-menu">
-                    <a href="{{route('login')}}">Log In <i class="fa fa-user"></i></a><span class="sub_menu_toggle"></span>
-                </li>
+                
+                    @if(Auth::guest()){
+                        <li class="search-menu">
+                            <a href="{{route('login')}}">Log In <i class="fa fa-user"></i></a><span class="sub_menu_toggle"></span>
+                        </li>
+                    }
+                    @else{
+                        <li class="search-menu">
+                            <!-- <a href="{{route('logout')}}">Log Out <i class="fa fa-sign-out"></i></a><span class="sub_menu_toggle"></span> -->
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                {{ csrf_field() }}
+                                <a type="submit">Log Out <i class="fa fa-sign-out"></i></a>
+                            </form>
+                        </li>
+                        <li class="search-menu">
+                            <a href="{{route('admin.all')}}">Dashboard <i class="fa fa-dashboard"></i></a><span class="sub_menu_toggle"></span>
+                        </li>
+                    }
+                    @endif
                 <li class="search-menu">
                     <a href="#"><i class="fa fa-search"></i></a><span class="sub_menu_toggle"></span>
                     <ul class="sub-menu">

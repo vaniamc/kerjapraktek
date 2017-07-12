@@ -24,7 +24,7 @@ class AboutController extends Controller
 
     public function home()
     {
-        $blog = blog::all();
+        $blog = blog::all()->where('blog_publish','1')->sortByDesc('created_at');
 //        dd($blog[0]);
         return view('home.index',compact('blog'));
     }

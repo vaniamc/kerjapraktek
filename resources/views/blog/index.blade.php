@@ -9,14 +9,25 @@
                         <div class="post-cat2">
                             <span><a href="category.html">Computers</a></span>
                         </div>
-                        <h2>Ideas and News from Insider Events</h2>
-                        <h4>by Zigmars Berzins</h4>
+                        <h2>{{$row->blog_title}}</h2>
+                        <h4>by Administrator</h4>
                     </div>
                     <div class="post-meta">
-                        <span>1 June 2015</span><span>54 views</span>
+                        <?php
+                            $y = substr($row->created_at, 0, 4);
+                            $m = substr($row->created_at, 5, 2);
+                            $d = substr($row->created_at, 8, 2);
+                        ?>
+                        <span>{{$d}}/{{$m}}/{{$y}}</span>
                     </div>
                 </div>
-                <div class="article-image"><img src="images/tcu.png" alt=""></div>
+                <div class="article-image">
+                    @if($row->blog_picture == NULL)
+                        <img src="{{asset('images/blog/none.jpg')}}" alt="your image" class="img-responsive" />
+                    @else
+                        <img src="{{asset('images/blog/'.$row->blog_picture)}}" alt="your image" class="img-responsive" />
+                    @endif
+                </div>
             </div>
         </div>
     </section>
@@ -29,21 +40,7 @@
                     <div class="theiaStickySidebar">
                         <div class="content ot-article">
                             <p>
-                                For globetrotting travelers, it's easy to recognize a spectacular city.
-                                They are energetic, diverse destinations intent on preserving local heritage and revitalizing undervalued neighborhoods, and they possess distinct personalities that set them apart from other metropolises.
-                                Whether it's the city you've called home for years or one you only just stumbled upon during your travels, the best destinations are intriguing cultural centers that can't be replicated anywhere else.
-                                No city proves this better than Kyoto, Japan, which returned for the second year in a row to the No. 1 spot on Travel + Leisure's annual World's Best list.
-                            </p>
-                            <blockquote>
-                                <p>People think focus means saying yes to the thing you&#8217;ve got to focus on. But that&#8217;s not what it means at all. It means saying no to the hundred other good ideas that there are. You have to pick carefully. I&#8217;m actually as proud of the things we haven&#8217;t done as the things I have done. Innovation is saying no to 1,000 things.</p>
-                            </blockquote>
-                            <p><cite>Steve Jobs</cite> &#8211; Apple Worldwide Developers&#8217; Conference, 1997</p>
-                            <p>
-                                Readers called it the quintessential Japanese experience, offering visitors everything from history (in the form of spiritual shrines) to notable cuisine (shojin ryori) and encounters with Geisha.
-                                Italy's classic crowd-pleasers, Florence and Rome, once again appear on Top 10 list -- as they have for 10 consecutive years.
-                                Bangkok, likely bumped from the list in 2014 due to governmental unrest, has returned to the number six spot.
-                                Below is the full list of the World's Best cities in 2015, which is compiled based on reader surveys.
-                                For more of Travel + Leisure's 2015 World's Best Awards, which cover everything from hotels to airports, click here: www.travelandleisure.com
+                                <?php echo $row->blog_content?>
                             </p>
                         </div>
                         <div class="ot-article-tags"><span><i class="fa fa-tags"></i></span><a href="index-grid.html">Street Art</a> <a href="index-grid.html">Fashion</a></div>
@@ -151,7 +148,7 @@
                         <!-- widget advertisement -->
                         <div class="widget-container widget_tag_cloud">
                             <h4 class="section-title"><a href="http://news.telkom.co.id/index.php?act=news&cat_id=34&id=44661">Socio Digi Leaders</a></h4>
-                            <img src="images/ads.jpeg" href="http://news.telkom.co.id/index.php?act=news&cat_id=34&id=44661" alt="" /> <br>
+                            <img src="{{asset('images/ads.jpeg')}}" href="http://news.telkom.co.id/index.php?act=news&cat_id=34&id=44661" alt="" /> <br>
 
                         </div>
                         <!-- end widget advertisement -->

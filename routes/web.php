@@ -15,13 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/contact', 'AboutController@contact' );
+Route::get('/', 'AboutController@home' );
+Route::get('/index', 'AboutController@home' );
+
+
+/* Admin Routes*/
+Route::get('blog','BlogController@index');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function (){
     Route::group(['prefix' => 'dashboard'], function (){
-        Route::get('/', 'AdminController@index');
+        Route::get('admin', 'AdminController@index');
         Route::get('all', 'AdminController@all')->name('admin.all');
         Route::get('publish', 'AdminController@publish')->name('admin.published');
         Route::get('add', 'AdminController@add')->name('admin.add');

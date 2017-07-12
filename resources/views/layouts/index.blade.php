@@ -10,14 +10,14 @@
     <link rel="icon" href="images/logo1.png">
     <title>Telkom CorpU News Center</title>
     <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/font-awesome.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/shortcodes.css" rel="stylesheet">
-    <link href="/css/style-wp.css" rel="stylesheet">
-    <link href="/css/owl.carousel.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/shortcodes.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style-wp.css')}}" rel="stylesheet">
+    <link href="{{asset('css/owl.carousel.css')}}" rel="stylesheet">
     <!-- only for demo -->
-    <link href="/css/demo-settings.css" rel="stylesheet">
+    <link href="{{asset('css/demo-settings.css')}}" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -59,13 +59,13 @@
                     <img width="150" id="logo" src="images/logo2.png" alt="logo">
                 </li>
                 <li>
-                    <a href="/index"><i class="fa fa-home"></i> Home </a><span class="sub_menu_toggle"></span>
+                    <a href="{{url('index')}}"><i class="fa fa-home"></i> Home </a><span class="sub_menu_toggle"></span>
                 </li>
                 <li>
-                    <a href="/contact"><i class="fa fa-phone"></i> Contact Us </a><span class="sub_menu_toggle"></span>
+                    <a href="{{url('contact')}}"><i class="fa fa-phone"></i> Contact Us </a><span class="sub_menu_toggle"></span>
                 </li>
                 <li class="search-menu">
-                    <a href="/home">Log In <i class="fa fa-user"></i></a><span class="sub_menu_toggle"></span>
+                    <a href="{{route('login')}}">Log In <i class="fa fa-user"></i></a><span class="sub_menu_toggle"></span>
                 </li>
                 <li class="search-menu">
                     <a href="#"><i class="fa fa-search"></i></a><span class="sub_menu_toggle"></span>
@@ -101,11 +101,11 @@
 <!-- Bootstrap core and theme JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="/js/jquery-latest.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/demo-settings.js"></script>
-<script type="text/javascript" src="/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="/js/theia-sticky-sidebar.js"></script>
-<script type="text/javascript" src="/js/themescripts.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery-latest.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/demo-settings.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/theia-sticky-sidebar.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/themescripts.js')}}"></script>
 </body>
 </html>

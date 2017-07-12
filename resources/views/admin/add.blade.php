@@ -14,25 +14,25 @@
     	{{Form::open(['route'=>'admin.insert', 'files'=> true])}}
     	<div class="box-body">
 	        <div class="form-group">
-		        {{Form::label('title', 'Judul')}}
-		        {{Form::text('title',null,array('class' => 'form-control', 'placeholder'=>'Judul', 'name'=>'title-blog'))}}
+		        {{Form::label('title', 'Title')}}
+		        {{Form::text('title',null,array('class' => 'form-control', 'placeholder'=>'Title', 'name'=>'title-blog'))}}
 	        </div>
 			<div class="form-group">
-				{{Form::label('title', 'Gambar')}}
+				{{Form::label('title', 'Picture')}}
 		        <input name="blog_picture" type="file" class="form-control" id="imgInp">
 		        <img id="blah" src="#" alt="your image" hidden/>
 	        </div>
 	        <div class="form-group">
-	        	{{Form::label('body', 'Konten')}}
+	        	{{Form::label('body', 'Content')}}
 	        	<textarea name="content-blog" id="summernote" class="form-control"></textarea>
 	        </div>
 	        <div class="checkbox">
 	        	<label>
-	        		{{Form::checkbox('publish', 1, null)}} Posting
+	        		{{Form::checkbox('publish', 1, null)}} Publish
 	        	</label>
 	        </div>
 	        <div class="form-group">
-	        	{{Form::submit('Simpan Postingan',array('class' => 'btn btn-primary btn-sm'))}}
+	        	{{Form::submit('Save Post',array('class' => 'btn btn-primary btn-sm'))}}
 	        </div>
 	    </div>    
 	    {{Form::close()}}

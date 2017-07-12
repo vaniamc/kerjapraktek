@@ -1,10 +1,10 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.html" class="logo">
+    <a href="{{route('admin.all')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>TCUB</b></span>
+      <span class="logo-mini"><b><i class="fa fa-dashboard"></i></b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>TCUBulletin</b></span>
+      <span class="logo-lg"><b><i class="fa fa-dashboard"></i> TCU News Center</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -26,18 +26,13 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{url('/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
-
                 <p>
                   Admin
-                  <small>Member since Nov. 2012</small>
+                  <small>Member since 2017</small>
                 </p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
                 <div class="pull-right">
                   <a class="btn btn-default btn-flat" onclick="signout();">Sign out</a>
                 </div>

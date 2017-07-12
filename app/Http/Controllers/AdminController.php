@@ -8,32 +8,46 @@ use DB;
 
 class AdminController extends Controller
 {
-
+	// public function __construct()
+ //    {
+ //        $this->middleware('auth');
+ //    }
+    
     public function index()
     {
-    	$this->data['page_title'] = 'Dashboard';
-    	return view('layout.master', $this->data);
+    	return redirect('dashboard/all');
+    }
+
+    public function login()
+    {
+    	return view('admin.login');
     }
 
     public function all()
     {
-    	$data['page_title'] = 'Semua Posting';
+    	$data['page_title'] = 'Telkom CorpU News Center | All Posts';
     	$data['blog'] = blog::all();
-    	//dd($data['blog']);
+    	$data['count_all'] = blog::all()->count();;
+    	$data['count_pub'] = blog::all()->where('blog_publish','1')->count();
+    	//dd($data['count_all']);
     	return view('admin.all', $data);
     }
 
     public function publish()
     {
-    	$data['page_title'] = 'Yang Diposting';
+    	$data['page_title'] = 'Telkom CorpU News Center | Published';
     	$data['blog'] = blog::all()->where('blog_publish','1');
+    	$data['count_all'] = blog::all()->count();
+    	$data['count_pub'] = blog::all()->where('blog_publish','1')->count();
     	//dd($data['blog']);
     	return view('admin.publish', $data);
     }
 
     public function add()
     {
-    	$data['page_title'] = 'Tambah Postingan';
+    	$data['page_title'] = 'Telkom CorpU News Center | New Post';
+    	$data['count_all'] = blog::all()->count();
+    	$data['count_pub'] = blog::all()->where('blog_publish','1')->count();
     	//dd($data['blog']);
     	return view('admin.add', $data);
     }
@@ -65,7 +79,9 @@ class AdminController extends Controller
 
     public function edit($id)
     {
-    	$data['page_title'] = 'Edit Postingan';
+    	$data['page_title'] = 'Telkom CorpU News Center | Edit Post';
+    	$data['count_all'] = blog::all()->count();
+    	$data['count_pub'] = blog::all()->where('blog_publish','1')->count();
     	$data['blog'] = blog::all()->where('blog_id',$id)->first();
 		return view('admin.edit', $data);
     }
@@ -98,5 +114,12 @@ class AdminController extends Controller
 			);
 		}
 		return redirect('dashboard/all');
+    }
+
+    public function delete(Request $request)
+    {
+    	$id = $request->input('blog_id');
+    	$blog = blog::destroy($id);
+    	if($blog) return redirect('dashboard/all');
     }
 }

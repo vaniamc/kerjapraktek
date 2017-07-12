@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('login','AdminController@login')->name('login');
+
 Route::group(['prefix' => 'dashboard'], function (){
     Route::get('/', 'AdminController@index');
     Route::get('all', 'AdminController@all')->name('admin.all');
@@ -23,6 +25,5 @@ Route::group(['prefix' => 'dashboard'], function (){
     Route::post('add', 'AdminController@insert')->name('admin.insert');
     Route::get('edit/{id}', 'AdminController@edit');
     Route::post('edit/{id}', 'AdminController@submitEdit');
-    Route::get('delete/{id}', 'AdminController@delete');
-    Route::post('delete/{id}', 'AdminController@submitDelete');
+    Route::post('delete', 'AdminController@delete');
 });

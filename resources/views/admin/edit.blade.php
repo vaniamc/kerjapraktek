@@ -14,11 +14,11 @@
     	{{Form::open(['url'=>'dashboard/edit/'.$blog->blog_id, 'files'=> true])}}
     	<div class="box-body">
 	        <div class="form-group">
-		        {{Form::label('title', 'Judul')}}
-		        {{Form::text('title',$blog->blog_title,array('class' => 'form-control', 'placeholder'=>'Judul', 'name'=>'title-blog'))}}
+		        {{Form::label('title', 'Title')}}
+		        {{Form::text('title',$blog->blog_title,array('class' => 'form-control', 'placeholder'=>'Title', 'name'=>'title-blog'))}}
 	        </div>
 			<div class="form-group">
-				{{Form::label('title', 'Gambar')}}
+				{{Form::label('title', 'Picture')}}
 		        <input name="blog_picture" type="file" class="form-control" id="imgInp">
 		        @if($blog->blog_picture == NULL)
 		        	<img id="blah" src="#" alt="your image" hidden/>
@@ -27,20 +27,20 @@
 		        @endif
 	        </div>
 	        <div class="form-group">
-	        	{{Form::label('body', 'Konten')}}
+	        	{{Form::label('body', 'Content')}}
 	        	<textarea name="content-blog" id="summernote" class="form-control"><?php echo $blog->blog_content?></textarea>
 	        </div>
 	        <div class="checkbox">
 	        	<label>
 	        		@if($blog->blog_publish == 1)
-	        			{{Form::checkbox('publish', 1, true)}} Posting
+	        			{{Form::checkbox('publish', 1, true)}} Publish
 	        		@else
-	        			{{Form::checkbox('publish', 1, null)}} Posting
+	        			{{Form::checkbox('publish', 1, null)}} Publish
 	        		@endif
 	        	</label>
 	        </div>
 	        <div class="form-group">
-	        	{{Form::submit('Simpan Postingan',array('class' => 'btn btn-primary btn-sm'))}}
+	        	{{Form::submit('Save Post',array('class' => 'btn btn-primary btn-sm'))}}
 	        </div>
 	    </div>    
 	    {{Form::close()}}

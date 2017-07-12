@@ -76,18 +76,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- <script src="{{ asset ("/bower_components/admin-lte/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script> -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="{{ asset ("/bower_components/admin-lte/dist/js/app.min.js") }}" type="text/javascript"></script>
+<script src="{{ asset ('/bower_components/admin-lte/dist/js/app.min.js') }}" type="text/javascript"></script>
 <!-- DataTables -->
-<script src="{{asset ("/bower_components/admin-lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
-<script src="{{asset ("/bower_components/admin-lte/plugins/datatables/dataTables.bootstrap.min.js")}}"></script>
+<script src="{{asset ('/bower_components/admin-lte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset ('/bower_components/admin-lte/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 <!-- SlimScroll -->
-<script src="{{asset ("/bower_components/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js")}}"></script>
+<script src="{{asset ('/bower_components/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
 <!-- FastClick -->
-<script src="{{asset ("/bower_components/admin-lte/plugins/fastclick/fastclick.js")}}"></script>
+<script src="{{asset ('/bower_components/admin-lte/plugins/fastclick/fastclick.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{asset ("/js/demo.js")}}"></script>
-<script src="{{asset ("/js/moment.js")}}"></script>
-<script src="{{asset ("/js/bootstrap-datetimepicker.min.js")}}"></script>
+<script src="{{asset ('/js/demo.js')}}"></script>
+<script src="{{asset ('/js/moment.js')}}"></script>
+<script src="{{asset ('/js/bootstrap-datetimepicker.min.js')}}"></script>
+<!-- <script src="{{ asset('js/app.js') }}"></script> -->
 
 @yield('js')
 <!-- Optionally, you can add Slimscroll and FastClick plugins.

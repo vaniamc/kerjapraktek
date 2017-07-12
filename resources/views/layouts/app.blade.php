@@ -25,30 +25,7 @@
 
 </head>
 <body class="hold-transition login-page" id="body-login">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="{{route('login')}}"><img src="{{asset('images/logo2.png')}}" class="img-responsive"></a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <!-- <p class="login-box-msg">Masuk sebagai peserta</p> -->
-
-    <form action="/home_admin" method="post">
-      <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email" name="email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" name="password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="box-footer">
-        <button type="submit" class="btn btn-info pull-right">Sign in</button>
-      </div><!-- /.box-footer -->
-    </form>
-  </div>
-  <!-- /.login-box-body -->
-</div>
+@yield('content')
 <!-- /.login-box -->
 
 <!-- jQuery 2.1.3 -->

@@ -15,15 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login','AdminController@login')->name('login');
+Auth::routes();
 
-Route::group(['prefix' => 'dashboard'], function (){
-    Route::get('/', 'AdminController@index');
-    Route::get('all', 'AdminController@all')->name('admin.all');
-    Route::get('publish', 'AdminController@publish')->name('admin.published');
-    Route::get('add', 'AdminController@add')->name('admin.add');
-    Route::post('add', 'AdminController@insert')->name('admin.insert');
-    Route::get('edit/{id}', 'AdminController@edit');
-    Route::post('edit/{id}', 'AdminController@submitEdit');
-    Route::post('delete', 'AdminController@delete');
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['auth']], function (){
+    Route::group(['prefix' => 'dashboard'], function (){
+        Route::get('/', 'AdminController@index');
+        Route::get('all', 'AdminController@all')->name('admin.all');
+        Route::get('publish', 'AdminController@publish')->name('admin.published');
+        Route::get('add', 'AdminController@add')->name('admin.add');
+        Route::post('add', 'AdminController@insert')->name('admin.insert');
+        Route::get('edit/{id}', 'AdminController@edit');
+        Route::post('edit/{id}', 'AdminController@submitEdit');
+        Route::post('delete', 'AdminController@delete');
+    });
 });

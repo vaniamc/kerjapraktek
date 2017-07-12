@@ -39,7 +39,7 @@
                 margin-bottom: 40px;
             }
             .btn{
-                /*border-radius: 10%;*/
+                border-radius: 24px;
                 background-color: transparent;
                 border-color: white;
                 color: white;

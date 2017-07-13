@@ -30,7 +30,7 @@ class AboutController extends Controller
         return view('home.index',compact('blog'));
     }
 
-    public function search(Request $request)
+    public function searchdate(Request $request)
     {
         $year = $request->input('select_year');
         $month = $request->input('select_month');
@@ -44,6 +44,14 @@ class AboutController extends Controller
         }
         //dd($blog);
         return view('blog.search',compact('blog','year', 'month'));
+    }
+
+    public function search(Request $request)
+    {
+        $text = $request->input('search_input');
+        $blog = blog::where('blog_publish','1')->where('blog_title', 'like', '%'.$text.'%')->orWhere('blog_content', 'like', '%'.$text.'%')->get();
+        //dd($blog);
+        return view('home.search',compact('blog','text'));
     }
 
 }

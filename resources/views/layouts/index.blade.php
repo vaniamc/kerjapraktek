@@ -86,9 +86,9 @@
                     <a href="#"><i class="fa fa-search"></i></a><span class="sub_menu_toggle"></span>
                     <ul class="sub-menu">
                         <li>
-                            <form id="search" class="navbar-form search" action="">
+                            <form id="search" class="navbar-form search" action="{{url('/search')}}" method="get">
                                 <div class="input-group">
-                                    <input type="search" class="form-control" placeholder="Type to search" name="s" id="s">
+                                    <input type="search" class="form-control" placeholder="Type to search" name="search_input" id="s">
                                     <span class="input-group-btn"><button type="submit" class="btn btn-default btn-submit"><i class="fa fa-angle-right"></i></button></span>
                                 </div>
                             </form>

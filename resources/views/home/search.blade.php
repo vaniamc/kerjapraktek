@@ -10,37 +10,20 @@
 				<div class="col-md-8">
 					<div class="ot-module">
 						<!-- classic grid posts section -->
-						<h4 class="section-title"><span>Telkom Corporate University</span>News within {{$month or null}} {{$year}}</h4>
+						<h4 class="section-title"><span>Telkom Corporate University</span>News with Content: "{{$text}}"</h4>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="widget-container widget_tag_cloud">
-									<form role="form" method="get" action="{{url('blog/searchdate')}}">
+									<form role="form" method="get" action="{{url('/search')}}">
 									  <!-- {{csrf_field()}} -->
 									  <!-- select -->
 									  <div class="form-group">
-									    <label>Search Year: </label>
+									    <label>Search Content : </label>
 									    <div class="tag_item">
-									    	<select class="styled-select slate" id="year1" name="select_year"></select>
-									    </div>
-									    <label>Search Month: </label>
-									    <div class="tag_item">
-									    	<select class="styled-select slate" name="select_month">
-									    		<option value="01">January</option>
-									    		<option value="02">February</option>
-									    		<option value="03">March</option>
-									    		<option value="04">April</option>
-									    		<option value="05">May</option>
-									    		<option value="06">June</option>
-									    		<option value="07">July</option>
-									    		<option value="08">August</option>
-									    		<option value="09">September</option>
-									    		<option value="10">October</option>
-									    		<option value="11">November</option>
-									    		<option value="12">December</option>
-									    	</select>
+									    	<input type="search" class="form-control slate" placeholder="Type to search" name="search_input" id="s">
 									    </div>
 									    <div class="tag_item">
-									    	<button type="submit" class="btn-default btn-submit">Search</button>
+									    	<button type="submit" class="btn-default btn-submit">Search <i class="fa fa-search"></i></button>
 									    </div>
 									  </div>
 									</form>

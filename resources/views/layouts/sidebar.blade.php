@@ -55,7 +55,7 @@
 		<!-- end widget tag cloud -->
 		<div class="widget-container widget_tag_cloud">
 			<h4 class="section-title" id="demo">By Year</h4>
-				<form role="form" method="get" action="{{url('blog/search')}}">
+				<form role="form" method="get" action="{{url('blog/searchdate')}}">
 				  <!-- {{csrf_field()}} -->
 				  <!-- select -->
 				  <div class="form-group">

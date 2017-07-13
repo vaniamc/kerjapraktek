@@ -49,7 +49,7 @@ class AboutController extends Controller
     public function search(Request $request)
     {
         $text = $request->input('search_input');
-        $blog = blog::where('blog_publish','1')->where('blog_title', 'like', '%'.$text.'%')->orWhere('blog_publish','1')->where('blog_content', 'like', '%'.$text.'%')->get();
+        $blog = blog::where('blog_publish','1')->where('blog_title', 'like', '%'.$text.'%')->orWhere('blog_publish','1')->where('blog_content', 'like', '%'.$text.'%')->orderBy('created_at', 'desc')->get();
         //dd($blog);
         return view('home.search',compact('blog','text'));
     }

@@ -46,8 +46,15 @@
                         <div class="ot-article-tags"><span><i class="fa fa-tags"></i></span><a href="index-grid.html">Street Art</a> <a href="index-grid.html">Fashion</a></div>
 
                         <div class="ot-next-prev-cont">
-                            <div class="ot-prev"><a href="post.html"><span><i class="fa fa-chevron-left"></i>Previous article</span><strong>Is This Outfit a Relationship Deal-Breaker?</strong></a></div>
-                            <div class="ot-next"><a href="post.html"><span>Next article<i class="fa fa-chevron-right"></i></span><strong>World's top designers muse on shoes</strong></a></div>
+                            @if($blog_prev != NULL)
+                                <div class="ot-prev"><a href="{{url('blog',$blog_prev->blog_id)}}"><span><i class="fa fa-chevron-left"></i>Previous article</span><strong>{{$blog_prev->blog_title}}</strong></a></div>
+                            @else
+                                <div class="ot-prev"><span>No Previous article</span></div>
+                            @endif
+                            @if($blog_next == NULL)
+                            @else
+                                <div class="ot-next"><a href="{{url('blog',$blog_next->blog_id)}}"><span>Next article<i class="fa fa-chevron-right"></i></span><strong>{{$blog_next->blog_title}}</strong></a></div>
+                            @endif
                         </div>
                     </div>
                     <!-- end theiaStickySidebar -->

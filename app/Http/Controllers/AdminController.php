@@ -18,7 +18,7 @@ class AdminController extends Controller
     {
     	$data['page_title'] = 'Telkom CorpU News Center | All Posts';
     	$data['blog'] = blog::all();
-    	$data['count_all'] = blog::all()->count();;
+    	$data['count_all'] = blog::all()->count();
     	$data['count_pub'] = blog::all()->where('blog_publish','1')->count();
     	//dd($data['count_all']);
     	return view('admin.all', $data);

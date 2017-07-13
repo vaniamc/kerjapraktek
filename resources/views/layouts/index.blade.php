@@ -117,9 +117,24 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script type="text/javascript" src="{{asset('js/jquery-latest.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/demo-settings.js')}}"></script>
+<!-- <script type="text/javascript" src="{{asset('js/demo-settings.js')}}"></script> -->
 <script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/theia-sticky-sidebar.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/themescripts.js')}}"></script>
+<script>
+    var start = 2016;
+    var end = new Date().getFullYear();
+    var options = "";
+    for(var year = start ; year <=end; year++){
+      options += "<option value='"+year+"'>"+ year +"</option>";
+    }
+    document.getElementById("year").innerHTML = options;
+    document.getElementById("year1").innerHTML = options;
+
+    function myFunction() {
+        var x = document.getElementById("year").value;
+        document.getElementById("demo").innerHTML = "By Year: " + x;
+    }
+</script>
 </body>
 </html>

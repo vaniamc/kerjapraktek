@@ -54,31 +54,22 @@
 		</div>
 		<!-- end widget tag cloud -->
 		<div class="widget-container widget_tag_cloud">
-			<h4 class="section-title">By Year</h4>
-			
-			<div class="tag_item"><a data-toggle="collapse" href="#collapse1">
-					<select class="styled-select slate">
-						<option value="volvo">2016</option>
-						<option value="saab" selected >2017</option>
-						<option value="vw">2018</option>
-					</select>
-				</a><span>10</span></div>
-			<div id="collapse1" class="panel-collapse collapse">
-				<ul class="list-group">
-					<li class="tag_item"><a href="#">January</a><span>3</span></li>
-					<li class="tag_item"><a href="#">February</a><span>3</span></li>
-					<li class="tag_item"><a href="#">March</a><span>3</span></li>
-					<li class="tag_item"><a href="#">April</a><span>3</span></li>
-					<li class="tag_item"><a href="#">May</a><span>3</span></li>
-					<li class="tag_item"><a href="#">June</a><span>3</span></li>
-					<li class="tag_item"><a href="#">July</a><span>3</span></li>
-					<li class="tag_item"><a href="#">August</a><span>3</span></li>
-					<li class="tag_item"><a href="#">September</a><span>3</span></li>
-					<li class="tag_item"><a href="#">October</a><span>3</span></li>
-					<li class="tag_item"><a href="#">November</a><span>3</span></li>
-					<li class="tag_item"><a href="#">December</a><span>3</span></li>
-				</ul>
-			</div>
+			<h4 class="section-title" id="demo">By Year</h4>
+				<form role="form" method="get" action="{{url('blog/search')}}">
+				  <!-- {{csrf_field()}} -->
+				  <!-- select -->
+				  <div class="form-group">
+				    <label>Search Year: </label>
+				    <div class="tag_item">
+				    	<select class="styled-select slate" id="year" onchange="myFunction()" name="select_year"></select>
+				    </div>
+				    <div class="tag_item">
+				    	<button type="submit" class="btn-default btn-submit">Search</button>
+				    </div>
+				  </div>
+				</form>
+			<!-- <div id="collapse1" class="panel-collapse collapse">
+			</div> -->
 			{{--<div class="tag_item"><a data-toggle="collapse" href="#collapse2">2017</a><span>34</span></div>--}}
 			{{--<div id="collapse2" class="panel-collapse collapse">--}}
 				{{--<ul class="list-group">--}}

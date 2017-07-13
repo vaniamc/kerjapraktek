@@ -81,7 +81,7 @@ License URI: README_License.txt
 .widget_tag_cloud .tag_item a {
 color: #FFFFFF;
   text-transform: none;
-  padding: 5px 0px 5px 10px;
+  padding: 5px 10px 5px 10px;
   display: inline-block;
 }
 

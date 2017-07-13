@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('/contact', 'AboutController@contact' );
 Route::get('/', 'AboutController@home' );
-Route::get('/index', 'AboutController@home' );
+Route::get('/index', 'AboutController@home' )->name('index');
 
 
 /* Admin Routes*/

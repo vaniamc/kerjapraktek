@@ -2,3 +2,22 @@
  background-color: white;
  overflow-y: hidden;
 }
+
+button.button-logout{
+	display: block;
+    padding: 17px 15px 10px 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: #111111;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    background-color: transparent;
+    border:none;
+}
+
+button.button-logout:hover{
+	color: #f2f2f2;
+	background-color: #1d1d1d;
+}

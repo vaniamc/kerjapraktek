@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="{{route('admin.all')}}" class="logo">
+    <a href="{{route('index')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b><i class="fa fa-dashboard"></i></b></span>
       <!-- logo for regular state and mobile devices -->

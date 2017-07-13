@@ -18,6 +18,7 @@
     <link href="{{asset('css/owl.carousel.css')}}" rel="stylesheet">
     <!-- only for demo -->
     <link href="{{asset('css/demo-settings.css')}}" rel="stylesheet">
+    <link href="{{asset('css/tcu.css')}}" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -65,23 +66,21 @@
                     <a href="{{url('contact')}}"><i class="fa fa-phone"></i> Contact Us </a><span class="sub_menu_toggle"></span>
                 </li>
                 
-                    @if(Auth::guest()){
+                    @if(Auth::guest())
                         <li class="search-menu">
                             <a href="{{route('login')}}">Log In <i class="fa fa-user"></i></a><span class="sub_menu_toggle"></span>
                         </li>
-                    }
-                    @else{
+                    @else
                         <li class="search-menu">
                             <!-- <a href="{{route('logout')}}">Log Out <i class="fa fa-sign-out"></i></a><span class="sub_menu_toggle"></span> -->
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 {{ csrf_field() }}
-                                <a type="submit">Log Out <i class="fa fa-sign-out"></i></a>
+                                <button type="submit" class="button-logout">Log Out <i class="fa fa-sign-out"></i></button>
                             </form>
                         </li>
                         <li class="search-menu">
                             <a href="{{route('admin.all')}}">Dashboard <i class="fa fa-dashboard"></i></a><span class="sub_menu_toggle"></span>
                         </li>
-                    }
                     @endif
                 <li class="search-menu">
                     <a href="#"><i class="fa fa-search"></i></a><span class="sub_menu_toggle"></span>
@@ -104,7 +103,6 @@
 
 
 @yield('content')
-
 <!-- end Instagram Widget Section -->
     <footer class="footer">
         <div class="footer-bottom">

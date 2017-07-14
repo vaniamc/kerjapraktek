@@ -4,6 +4,19 @@
 	<!-- main content -->
 	<!-- main content -->
 	<section class="ot-section-a">
+		<div class="jumbotron jumbotron-billboard">
+		  <div class="img"></div>
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-lg-12">
+		                <h1>Telkom Corporate University News Center</h1>
+		                <!-- <p>
+		                    Lorem ipsum is the best
+		                </p> -->
+		            </div>
+		        </div>
+		    </div>
+		</div>
 		<!-- container -->
 		<div class="container">
 			<div class="row">

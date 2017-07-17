@@ -52,7 +52,7 @@
 									<!-- start list post item -->
 									<div class="list-post">
 										<div class="list-post-container">
-											<a href="blog">
+											<a href="{{url('blog',$row->blog_id)}}">
 												@if($row->blog_picture == NULL)
 												<img src="{{asset('images/blog/none.jpg')}}" alt="your image" class="img-responsive" />
 												@else

@@ -52,8 +52,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </h1>
             <!-- You can dynamically generate breadcrumbs here -->
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
+                <li><a href="{{route('admin.all')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                @if($page_title != 'Telkom CorpU News Center | All Posts')
+                    <li class="active">{{$page_title}}</li>
+                @endif
             </ol>
         </section>
 

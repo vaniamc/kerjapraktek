@@ -50,6 +50,7 @@
     {{--</header>--}}
     <!-- end header (logo section) -->
     <!-- main menu -->
+
     <nav class="main-menu">
         <div class="container">
             <label for="show-menu" class="show-menu"><i class="fa fa-bars"></i></label>
@@ -57,10 +58,16 @@
 
             <ul class="menu" id="main-mobile-menu">
                 <li>
-                    <img width="150" id="logo" src="{{asset('images/logo2.png')}}" alt="logo">
+                    <img width="200" id="logo" src="{{asset('images/corpu_logo.png')}}" alt="logo">
                 </li>
                 <li>
                     <a href="{{url('index')}}"><i class="fa fa-home"></i> Home </a><span class="sub_menu_toggle"></span>
+                </li>
+                <li>
+                    <a href="{{url('index')}}"><i class="fa fa-list"></i> Training Schedule </a><span class="sub_menu_toggle"></span>
+                </li>
+                <li>
+                    <a href="{{url('index')}}"><i class="fa fa-photo"></i> Gallery </a><span class="sub_menu_toggle"></span>
                 </li>
                 <li>
                     <a href="{{url('contact')}}"><i class="fa fa-phone"></i> Contact Us </a><span class="sub_menu_toggle"></span>
@@ -71,13 +78,13 @@
                             <a href="{{route('login')}}">Log In <i class="fa fa-user"></i></a><span class="sub_menu_toggle"></span>
                         </li>
                     @else
-                        <li class="search-menu">
-                            <!-- <a href="{{route('logout')}}">Log Out <i class="fa fa-sign-out"></i></a><span class="sub_menu_toggle"></span> -->
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                {{ csrf_field() }}
-                                <button type="submit" class="button-logout">Log Out <i class="fa fa-sign-out"></i></button>
-                            </form>
-                        </li>
+                        {{--<li class="search-menu">--}}
+                            {{--<!-- <a href="{{route('logout')}}">Log Out <i class="fa fa-sign-out"></i></a><span class="sub_menu_toggle"></span> -->--}}
+                            {{--<form id="logout-form" action="{{ route('logout') }}" method="POST">--}}
+                                {{--{{ csrf_field() }}--}}
+                                {{--<button type="submit" class="button-logout">Log Out <i class="fa fa-sign-out"></i></button>--}}
+                            {{--</form>--}}
+                        {{--</li>--}}
                         <li class="search-menu">
                             <a href="{{route('admin.all')}}">Dashboard <i class="fa fa-dashboard"></i></a><span class="sub_menu_toggle"></span>
                         </li>

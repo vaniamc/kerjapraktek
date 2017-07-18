@@ -24,33 +24,14 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <![endif]-->
 </head>
 <body>
 <div class="boxed active">
 
-    <!-- end topbar -->
-    <!-- header (logo section) -->
-    {{--<header class="header">--}}
-        {{--<div class="container">--}}
-            {{--<div class="logo"><a href="index.html"><img id="logo" src="images/logo2.png" alt="logo"></a></div>--}}
-            {{--<!-- <h1>Haute Couture</h1>--}}
-                {{--<div class="description">black is new red</div> -->--}}
-            {{--<div class="ad-728x90"><a href="index.html"><img width="300" src="images/maung.jpeg" alt="ad728x90"></a></div>--}}
-            {{--<div class="ad-728x90"><a href="index.html"><img width="350" src="images/slide1.png" alt="ad728x90"></a></div>--}}
-        {{--</div>--}}
-    {{--</header>--}}
 
-    {{--<header class="header">--}}
-        {{--<div class="container" style="width: 500px; display: block; margin-left: auto; margin-right: auto">--}}
-            {{--<div class="logo"><a href="index.html"><img id="logo" src="/images/logo2.png" alt="logo"></a></div>--}}
-
-                {{--<div class="description">black is new red</div>--}}
-            {{--<div class="ad-728x90"><a href="/index"><img src="/images/ad728x90.png" alt="ad728x90"></a></div>--}}
-        {{--</div>--}}
-    {{--</header>--}}
-    <!-- end header (logo section) -->
-    <!-- main menu -->
 
     <nav class="main-menu">
         <div class="container">
@@ -112,6 +93,7 @@
 
 @yield('content')
 <!-- end Instagram Widget Section -->
+
     <footer class="footer">
         <div class="footer-bottom">
             <i class="fa fa-copyright"></i>Copyright 2017. PT. Telekomunikasi Indonesia, Tbk.<br/>

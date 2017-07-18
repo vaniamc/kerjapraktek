@@ -42,36 +42,6 @@
 							<h5>http://mycorner.telkom.co.id</h5>
 						</div>
 
-						{{--<div class="ot-social-button">--}}
-							{{--<a href="#"><img src="images/line.png" alt=""></a>--}}
-							{{--<div class="ot-social-details">--}}
-								{{--<div class="ot-social-count">Line</div>--}}
-								{{--<div class="ot-social-type">@happytripkorea</div>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-						{{--<div class="ot-social-button">--}}
-							{{--<a href="https://www.instagram.com/happytripkorea/"><img src="images/instagram.png" alt=""></a>--}}
-							{{--<div class="ot-social-details">--}}
-								{{--<div class="ot-social-count">Instagram</div>--}}
-								{{--<div class="ot-social-type">@happytripkorea</div>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-						{{--<div class="ot-social-button">--}}
-							{{--<a href="#"><img src="images/whatsapp.png" alt=""></a>--}}
-							{{--<div class="ot-social-details">--}}
-								{{--<div class="ot-social-count">WA</div>--}}
-								{{--<div class="ot-social-type">081936561526 - Jakarta</div>--}}
-								{{--<div class="ot-social-type"> WA 081916641251 - Bali</div>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-						{{--<div class="ot-social-button">--}}
-							{{--<a href="https://www.facebook.com/happytripkorea/"><img src="images/facebook.png" alt=""></a>--}}
-							{{--<div class="ot-social-details">--}}
-								{{--<div class="ot-social-count">Facebook</div>--}}
-								{{--<div class="ot-social-type">Happy Trip Korea</div>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-
 						<div class="clearfix"></div>
 						<h3 class="section-title"><span>Maps</span></h3>
 						<div class="iframe-rwd embed-container  maps">

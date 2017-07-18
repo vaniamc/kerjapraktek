@@ -56,7 +56,7 @@
                                                 echo $edited;
                                             ?>
 										</p>
-										<div class="read-more pull-right"><a href="{{url('blog',$row->blog_id)}}" class="btn btn-default btn-secondary">read more</a></div>
+										<div class="read-more pull-right"><a href="{{url('blog',$row->blog_id)}}" class="btn btn-default btn-sm">read more</a></div>
 									</div>
 
 								</div>

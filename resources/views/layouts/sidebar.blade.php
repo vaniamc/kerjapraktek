@@ -4,8 +4,6 @@
 		<div class="widget-container widget_tag_cloud">
 			<h4 class="section-title"><a href="http://news.telkom.co.id/index.php?act=news&cat_id=34&id=44661">HOT NEWS</a></h4>
 			{{--<img src="{{asset('images/ads.jpeg')}}" href="http://news.telkom.co.id/index.php?act=news&cat_id=34&id=44661" alt="" /> <br>--}}
-			<div class="container">
-
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
@@ -17,17 +15,17 @@
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
 						<div class="item active">
+							<h5>SOCIO DIGITAL </h5>
 							<img src="{{asset('images/ads.jpeg')}}" alt="Los Angeles" style="width:300px;">
-							<div class="w3-display-topright w3-large w3-container w3-padding-16 w3-black">
-								The Rain Forest
-							</div>
 						</div>
 
 						<div class="item">
+							<h5>INDIHOME FRONTLINER </h5>
 							<img src="{{asset('images/indi.jpg')}}" alt="Chicago" style="width:300px;">
 						</div>
 
 						<div class="item">
+							<h5>HR HELPDESK</h5>
 							<img src="{{asset('images/ee.jpg')}}" alt="New york" style="width:300px;">
 						</div>
 					</div>
@@ -42,7 +40,6 @@
 						<span class="sr-only">Next</span>
 					</a>
 				</div>
-			</div>
 		</div>
 		<!-- end widget advertisement -->
 		<!-- widget articles section -->

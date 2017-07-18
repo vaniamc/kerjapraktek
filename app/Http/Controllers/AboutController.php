@@ -23,6 +23,13 @@ class AboutController extends Controller
         return view('contact.index',compact('blog'));
     }
 
+    public function schedule()
+    {
+        $blog = blog::all();
+//        dd($blog[0]);
+        return view('training_schedule.index',compact('blog'));
+    }
+
     public function home()
     {
         $blog = blog::all()->where('blog_publish','1')->sortByDesc('created_at');

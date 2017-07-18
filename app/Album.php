@@ -5,14 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Blog extends Model
+class Album extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'blog';
-    protected $primaryKey = 'blog_id';
+    protected $table = 'album';
+    protected $primaryKey = 'album_id';
     public $incrementing = true;
-    protected $fillable = ['blog_title','blog_content','blog_picture', 'blog_publish'];
+    protected $fillable = ['album_name'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -21,8 +21,8 @@ class Blog extends Model
      */
     protected $dates = ['deleted_at'];
 
-    public function category()
+    public function gallery()
     {
-        return $this->belongsTo('App\Category','category_id','category_id');
+    	return $this->hasMany('App\Gallery');
     }
 }

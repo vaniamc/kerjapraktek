@@ -11,36 +11,19 @@
 <div class="box">
   <!-- /.box-header -->
   	<div class="box-body pad">
-    	{{Form::open(['route'=>'admin.insert', 'files'=> true])}}
+    	{{Form::open(['route'=>'admin.insert.info', 'files'=> true])}}
     	<div class="box-body">
 	        <div class="form-group">
 		        {{Form::label('title', 'Title')}}
-		        {{Form::text('title',null,array('class' => 'form-control', 'placeholder'=>'Title', 'name'=>'title-blog', 'required' => 'required'))}}
-	        </div>
-	        <div class="form-group">
-		        {{Form::label('category', 'Category')}}
-		        <select class="form-control" name="category_id">
-		          @foreach($category as $row)
-		          <option value="{{$row->category_id}}">{{$row->category_name}}</option>
-		          @endforeach
-		        </select>
+		        {{Form::text('title',null,array('class' => 'form-control', 'placeholder'=>'Title', 'name'=>'title-info', 'required' => 'required'))}}
 	        </div>
 			<div class="form-group">
 				{{Form::label('title', 'Picture')}}
-		        <input name="blog_picture" type="file" class="form-control" id="imgInp">
+		        <input name="info-poster" type="file" class="form-control" id="imgInp" required>
 		        <img id="blah" src="#" alt="your image" hidden/>
 	        </div>
 	        <div class="form-group">
-	        	{{Form::label('body', 'Content')}}
-	        	<textarea name="content-blog" id="summernote" class="form-control" required></textarea>
-	        </div>
-	        <div class="checkbox">
-	        	<label>
-	        		{{Form::checkbox('publish', 1, null)}} Publish
-	        	</label>
-	        </div>
-	        <div class="form-group">
-	        	{{Form::submit('Save Post',array('class' => 'btn btn-primary btn-sm'))}}
+	        	{{Form::submit('Save Info',array('class' => 'btn btn-primary btn-sm'))}}
 	        </div>
 	    </div>    
 	    {{Form::close()}}
@@ -51,9 +34,6 @@
 @section('js')
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
 <script>
-	$('#summernote').summernote({
-		placeholder: 'Tulis di sini...'
-	});
 	function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();

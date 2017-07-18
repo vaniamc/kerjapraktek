@@ -1,36 +1,31 @@
 @extends('layout.master')
 
+@section('css')
+<link rel="stylesheet" type="text/css" href="{{asset('css/tcu.css')}}">
+@stop
+
 @section('content')
   <div class="box">
     <div class="box-body">
+      <a href="{{route('admin.add.album')}}" class="btn btn-primary"><span>New Album </span><span class="glyphicon glyphicon-plus"></span></a><br><br>
       <table id="example1" class="table table-bordered table-striped">
         <thead>
           <tr>
             <th class="text-center">#</th>
             <th class="text-center">Title</th>
-            <th class="text-center">Category</th>
-            <th class="text-center">Created Date</th>
             <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
           <?php $no = 1 ?>
-          @foreach($blog as $row)
+          @foreach($album as $row)
           <tr>
               <td class="text-center">{{$no++}}</td>
-              <td class="text-center">{{$row->blog_title}}</td>
+              <td class="text-center">{{$row->album_name}}</td>
               <td class="text-center">
-                @if($row->category == NULL)
-                  -
-                @else
-                  {{$row->category->category_name}}
-                @endif
-              </td>
-              <td class="text-center">{{$row->created_at}}</td>
-              <td class="text-center">
-                <a href="{{url('dashboard/edit', $row->blog_id )}}" class="btn btn-primary btn-xs"><span>Edit </span><span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="{{url('dashboard/edit-album', $row->album_id )}}" class="btn btn-primary btn-xs"><span>Edit </span><span class="glyphicon glyphicon-pencil"></span></a>
                 <!-- <a href="{{url('dashboard/delete', $row->blog_id )}}" class="btn btn-danger btn-xs" id="delete_product"><span>Delete </span><span class="glyphicon glyphicon-remove"></span></a> -->
-                <button type="button" data-product_id="{{ $row->blog_id }}" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#confirmDelete">Delete <span class="glyphicon glyphicon-remove"></span></button>
+                <button type="button" data-product_id="{{ $row->album_id }}" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#confirmDelete">Delete <span class="glyphicon glyphicon-remove"></span></button>
               </td>
           </tr>
           @endforeach
@@ -39,8 +34,8 @@
         </tfoot>
       </table>
     </div><!-- /.box-body -->
-
   </div>
+
   <!-- Modal -->
   <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -52,10 +47,11 @@
           </button>
         </div>
         <div class="modal-body">
-          <center><p>Are you sure you want to delete this post?</p></center>        
+          <center><p>Are you sure you want to delete this album?</p></center>        
         </div>
         <div class="modal-footer">
           {!! Form::open(['method' => 'post', 'id'=>'delForm']) !!}
+            <input type="text" name="album_id" id="id_blog" hidden>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
             <button type="submit" class="btn btn-primary btn-danger">Delete</button>
           {!! Form::close() !!}
@@ -71,7 +67,7 @@
     //get data-id attribute of the clicked element
     var productId = $(e.relatedTarget).data('product_id');
     $("#id_blog").attr('value', productId);
-    $("#delForm").attr('action', 'delete');//e.g. 'domainname/products/' + productId
+    $("#delForm").attr('action', 'delete-album');//e.g. 'domainname/products/' + productId
   });
 </script>
 @stop

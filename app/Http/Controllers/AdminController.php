@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
+use App\Category;
+use App\Info;
+use App\Album;
+use App\Gallery;
 use DB;
 
 class AdminController extends Controller
@@ -17,9 +21,9 @@ class AdminController extends Controller
     public function all()
     {
     	$data['page_title'] = 'Telkom CorpU News Center | All Posts';
-    	$data['blog'] = blog::all();
-    	$data['count_all'] = blog::all()->count();
-    	$data['count_pub'] = blog::all()->where('blog_publish','1')->count();
+    	$data['blog'] = Blog::with('category')->get();
+    	$data['count_all'] = Blog::all()->count();
+    	$data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
     	//dd($data['count_all']);
     	return view('admin.all', $data);
     }
@@ -27,27 +31,29 @@ class AdminController extends Controller
     public function publish()
     {
     	$data['page_title'] = 'Telkom CorpU News Center | Published';
-    	$data['blog'] = blog::all()->where('blog_publish','1');
-    	$data['count_all'] = blog::all()->count();
-    	$data['count_pub'] = blog::all()->where('blog_publish','1')->count();
-    	//dd($data['blog']);
+    	$data['blog'] = Blog::with('category')->where('blog_publish','1')->get();
+    	$data['count_all'] = Blog::all()->count();
+    	$data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+    	// dd($data['blog']);
     	return view('admin.publish', $data);
     }
 
     public function add()
     {
     	$data['page_title'] = 'Telkom CorpU News Center | New Post';
-    	$data['count_all'] = blog::all()->count();
-    	$data['count_pub'] = blog::all()->where('blog_publish','1')->count();
+    	$data['count_all'] = Blog::all()->count();
+    	$data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['category'] = Category::all();
     	//dd($data['blog']);
     	return view('admin.add', $data);
     }
 
     public function insert(Request $request)
     {
-    	$blog = new blog();
+    	$blog = new Blog();
 		$blog->blog_title = $request->input('title-blog');
 		$blog->blog_content = $request->input('content-blog');
+        $blog->category_id = $request->input('category_id');
 		if($request->input('publish') == 1){
 			$blog->blog_publish = 1;
 		}
@@ -71,9 +77,10 @@ class AdminController extends Controller
     public function edit($id)
     {
     	$data['page_title'] = 'Telkom CorpU News Center | Edit Post';
-    	$data['count_all'] = blog::all()->count();
-    	$data['count_pub'] = blog::all()->where('blog_publish','1')->count();
-    	$data['blog'] = blog::all()->where('blog_id',$id)->first();
+    	$data['count_all'] = Blog::all()->count();
+    	$data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+    	$data['blog'] = Blog::all()->where('blog_id',$id)->first();
+        $data['category'] = Category::all();
 		return view('admin.edit', $data);
     }
 
@@ -90,6 +97,7 @@ class AdminController extends Controller
 				'blog_title' => $request->input('title-blog'),
 				'blog_content' => $request->input('content-blog'),
 				'blog_publish' => $publish,
+                'category_id' => $request->input('category_id'),
 			]);
 		}
 		else{
@@ -99,6 +107,7 @@ class AdminController extends Controller
 				'blog_picture' => $imageName,
 				'blog_content' => $request->input('content-blog'),
 				'blog_publish' => $publish,
+                'category_id' => $request->input('category_id'),
 			]);
 			$request->file('blog_picture')->move(
 				base_path() . '/public/images/blog/', $imageName
@@ -110,7 +119,247 @@ class AdminController extends Controller
     public function delete(Request $request)
     {
     	$id = $request->input('blog_id');
-    	$blog = blog::destroy($id);
+    	$blog = Blog::destroy($id);
     	if($blog) return redirect('dashboard/all');
+    }
+
+    public function allCategory()
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | All Category';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['category'] = Category::all();
+        //dd($data['blog']);
+        return view('admin.all-category', $data);
+    }
+
+    public function addCategory(){
+        $data['page_title'] = 'Telkom CorpU News Center | New Category';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        //dd($data['blog']);
+        return view('admin.add-category', $data);
+    }
+
+    public function insertCategory(Request $request){
+        $category = new Category();
+        $category->category_name = $request->input('name');
+        $category->save();
+        return redirect('dashboard/category');
+    }
+
+    public function editCategory($id){
+        $data['page_title'] = 'Telkom CorpU News Center | Edit Category';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['category'] = Category::find($id);
+        // dd($data['category']);
+        return view('admin.edit-category', $data);
+    }
+
+    public function submitEditCategory(Request $request, $id){
+        DB::table('category')->where('category_id', $id)->update([
+                'category_name' => $request->input('name'),
+            ]);
+        return redirect('dashboard/category');
+    }
+
+    public function allInfo()
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | All Info';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['info'] = Info::all();
+        //dd($data['blog']);
+        return view('admin.all-info', $data);
+    }
+
+    public function addInfo()
+    {
+        $data['page_title'] = 'Telkom CorpU News Center |New Info';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        //dd($data['blog']);
+        return view('admin.add-info', $data);
+    }
+
+    public function insertInfo(Request $request){
+        $info = new Info();
+        $info->info_title = $request->input('title-info');
+        $imageName = 'blog_default.png';
+        if($request->file()!=null){
+            $imageName = time().'.'.$request->file('info-poster')->getClientOriginalExtension();
+        }
+        $info->info_poster= $imageName;
+        $info->save();
+        if($request->file()!=null){
+                $request->file('info-poster')->move(
+                base_path() . '/public/images/info/', $imageName
+            );
+        }
+        return redirect('dashboard/info');
+    }
+
+    public function editInfo($id)
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | Edit Info';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['info'] = Info::find($id);
+        //dd($data['blog']);
+        return view('admin.edit-info', $data);
+    }
+
+    public function submitEditInfo(Request $request, $id)
+    {
+        if($request->file('info_poster')==null){
+            DB::table('info')->where('info_id', $id)->update([
+                'info_title' => $request->input('title-info'),
+            ]);
+        }
+        else{
+            $imageName = time().'.'.$request->file('info_poster')->getClientOriginalExtension();
+            DB::table('info')->where('info_id', $id)->update([
+                'info_title' => $request->input('title-info'),
+                'info_poster' => $imageName,
+            ]);
+            $request->file('info_poster')->move(
+                base_path() . '/public/images/info/', $imageName
+            );
+        }
+        return redirect('dashboard/info');
+    }
+
+    public function deleteInfo(Request $request)
+    {
+        $id = $request->input('info_id');
+        $info = Info::destroy($id);
+        if($info) return redirect('dashboard/info');
+    }
+
+    public function allAlbum()
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | All Album';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['album'] = Album::all();
+        //dd($data['blog']);
+        return view('admin.all-album', $data);
+    }
+
+    public function addAlbum()
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | New Album';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        //dd($data['blog']);
+        return view('admin.add-album', $data);
+    }
+
+    public function insertAlbum(Request $request)
+    {
+        $album = new Album();
+        $album->album_name = $request->input('name');
+        $album->save();
+        return redirect('dashboard/album');
+    }
+
+    public function editAlbum($id)
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | Edit Album';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['album'] = Album::find($id);
+        //dd($data['blog']);
+        return view('admin.edit-album', $data);
+    }
+
+    public function submitEditAlbum(Request $request, $id)
+    {
+        DB::table('album')->where('album_id', $id)->update([
+                'album_name' => $request->input('name'),
+            ]);
+        return redirect('dashboard/album');
+    }
+
+    public function deleteAlbum(Request $request)
+    {
+        $id = $request->input('album_id');
+        $album = Album::destroy($id);
+        if($album) return redirect('dashboard/album');
+    }
+
+    public function allGallery()
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | All Images';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['gallery'] = Gallery::with('album')->get();
+        //dd($data['blog']);
+        return view('admin.all-gallery', $data);
+    }
+
+    public function addGallery()
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | New Image';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['album'] = Album::all();
+        //dd($data['blog']);
+        return view('admin.add-gallery', $data);
+    }
+
+    public function insertGallery(Request $request){
+        $gallery = new Gallery();
+        $gallery->album_id = $request->input('album_id');
+        $imageName = 'blog_default.png';
+        if($request->file()!=null){
+            $imageName = time().'.'.$request->file('info-poster')->getClientOriginalExtension();
+        }
+        $gallery->gallery_path= $imageName;
+        $gallery->save();
+        if($request->file()!=null){
+                $request->file('info-poster')->move(
+                base_path() . '/public/images/gallery/', $imageName
+            );
+        }
+        return redirect('dashboard/gallery');
+    }
+
+    public function editGallery($id)
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | Edit Image';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['gallery'] = Gallery::find($id);
+        //dd($data['blog']);
+        return view('admin.edit-gallery', $data);
+    }
+
+    public function submitEditGallery(Request $request, $id)
+    {
+        if($request->file('info_poster')==null){
+            DB::table('gallery')->where('gallery_id', $id)->update([
+                'album_id' => $request->input('album_id'),
+            ]);
+        }
+        else{
+            $imageName = time().'.'.$request->file('info_poster')->getClientOriginalExtension();
+            DB::table('gallery')->where('gallery_id', $id)->update([
+                'album_id' => $request->input('album_id'),
+                'gallery_path' => $imageName,
+            ]);
+            $request->file('info_poster')->move(
+                base_path() . '/public/images/gallery/', $imageName
+            );
+        }
+        return redirect('dashboard/gallery');
+    }
+
+    public function deleteGallery(Request $request)
+    {
+        $id = $request->input('gallery_id');
+        $gallery = Gallery::destroy($id);
+        if($gallery) return redirect('dashboard/gallery');
     }
 }

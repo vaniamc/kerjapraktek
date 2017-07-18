@@ -70,7 +70,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Oswald", sans-serif;
 	font-weight: 800;
 	line-height: 1.3;
 	-webkit-font-smoothing: antialiased;
@@ -584,8 +584,10 @@ nav.main-menu ul {
 	margin: 0;
 	padding: 0;
 	position: relative;
-	border-bottom: 4px solid;
-	border-color: #8f8f91;
+	border-bottom: 6px solid;
+	border-bottom-style: groove;
+
+	border-color: #ff001e;
 	background-color: #ffffff;
 	z-index: 1002;
 }
@@ -3061,7 +3063,7 @@ text-decoration: none;
 --------------------*/
 
 .section-title {
-font-family: "Oswald", sans-serif;
+	font-family: "Oswald", sans-serif;
 	letter-spacing: 0.3px;
 	word-spacing: 1px;
 	color: #474747;
@@ -3069,7 +3071,10 @@ font-family: "Oswald", sans-serif;
 	font-size: 36px;
 	font-weight: 600;
 	margin-bottom: 4px;
-	border-bottom: 4px solid #474747;
+	border-bottom: 4px solid #ff001e;
+	border-bottom-style: ridge;
+
+
 /*	border-bottom: 1px solid #D7D7D7; */
 	padding-bottom: 10px;
 }
@@ -3108,7 +3113,8 @@ font-family: "Oswald", sans-serif;
 	font-size: 28px;
 	font-weight: 600;
 	margin-bottom: 4px;
-	border-bottom: 3px solid #474747;
+	border-bottom: 3px solid #ff001e;
+	border-bottom-style: double;
 	padding-bottom: 5px;
 }
 

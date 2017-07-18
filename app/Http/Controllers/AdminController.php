@@ -332,6 +332,7 @@ class AdminController extends Controller
         $data['count_all'] = Blog::all()->count();
         $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
         $data['gallery'] = Gallery::find($id);
+        $data['album'] = Album::all();
         //dd($data['blog']);
         return view('admin.edit-gallery', $data);
     }

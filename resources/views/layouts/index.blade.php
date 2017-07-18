@@ -19,37 +19,20 @@
     <!-- only for demo -->
     <link href="{{asset('css/demo-settings.css')}}" rel="stylesheet">
     <link href="{{asset('css/tcu.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <![endif]-->
 </head>
 <body>
 <div class="boxed active">
 
-    <!-- end topbar -->
-    <!-- header (logo section) -->
-    {{--<header class="header">--}}
-        {{--<div class="container">--}}
-            {{--<div class="logo"><a href="index.html"><img id="logo" src="images/logo2.png" alt="logo"></a></div>--}}
-            {{--<!-- <h1>Haute Couture</h1>--}}
-                {{--<div class="description">black is new red</div> -->--}}
-            {{--<div class="ad-728x90"><a href="index.html"><img width="300" src="images/maung.jpeg" alt="ad728x90"></a></div>--}}
-            {{--<div class="ad-728x90"><a href="index.html"><img width="350" src="images/slide1.png" alt="ad728x90"></a></div>--}}
-        {{--</div>--}}
-    {{--</header>--}}
 
-    {{--<header class="header">--}}
-        {{--<div class="container" style="width: 500px; display: block; margin-left: auto; margin-right: auto">--}}
-            {{--<div class="logo"><a href="index.html"><img id="logo" src="/images/logo2.png" alt="logo"></a></div>--}}
 
-                {{--<div class="description">black is new red</div>--}}
-            {{--<div class="ad-728x90"><a href="/index"><img src="/images/ad728x90.png" alt="ad728x90"></a></div>--}}
-        {{--</div>--}}
-    {{--</header>--}}
-    <!-- end header (logo section) -->
-    <!-- main menu -->
     <nav class="main-menu">
         <div class="container">
             <label for="show-menu" class="show-menu"><i class="fa fa-bars"></i></label>
@@ -57,10 +40,16 @@
 
             <ul class="menu" id="main-mobile-menu">
                 <li>
-                    <img width="150" id="logo" src="{{asset('images/logo2.png')}}" alt="logo">
+                    <img width="200" id="logo" src="{{asset('images/corpu_logo.png')}}" alt="logo">
                 </li>
                 <li>
                     <a href="{{url('index')}}"><i class="fa fa-home"></i> Home </a><span class="sub_menu_toggle"></span>
+                </li>
+                <li>
+                    <a href="{{url('index')}}"><i class="fa fa-list"></i> Training Schedule </a><span class="sub_menu_toggle"></span>
+                </li>
+                <li>
+                    <a href="{{url('index')}}"><i class="fa fa-photo"></i> Gallery </a><span class="sub_menu_toggle"></span>
                 </li>
                 <li>
                     <a href="{{url('contact')}}"><i class="fa fa-phone"></i> Contact Us </a><span class="sub_menu_toggle"></span>
@@ -71,13 +60,13 @@
                             <a href="{{route('login')}}">Log In <i class="fa fa-user"></i></a><span class="sub_menu_toggle"></span>
                         </li>
                     @else
-                        <li class="search-menu">
-                            <!-- <a href="{{route('logout')}}">Log Out <i class="fa fa-sign-out"></i></a><span class="sub_menu_toggle"></span> -->
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                {{ csrf_field() }}
-                                <button type="submit" class="button-logout">Log Out <i class="fa fa-sign-out"></i></button>
-                            </form>
-                        </li>
+                        {{--<li class="search-menu">--}}
+                            {{--<!-- <a href="{{route('logout')}}">Log Out <i class="fa fa-sign-out"></i></a><span class="sub_menu_toggle"></span> -->--}}
+                            {{--<form id="logout-form" action="{{ route('logout') }}" method="POST">--}}
+                                {{--{{ csrf_field() }}--}}
+                                {{--<button type="submit" class="button-logout">Log Out <i class="fa fa-sign-out"></i></button>--}}
+                            {{--</form>--}}
+                        {{--</li>--}}
                         <li class="search-menu">
                             <a href="{{route('admin.all')}}">Dashboard <i class="fa fa-dashboard"></i></a><span class="sub_menu_toggle"></span>
                         </li>
@@ -104,6 +93,7 @@
 
 @yield('content')
 <!-- end Instagram Widget Section -->
+
     <footer class="footer">
         <div class="footer-bottom">
             <i class="fa fa-copyright"></i>Copyright 2017. PT. Telekomunikasi Indonesia, Tbk.<br/>

@@ -52,9 +52,9 @@
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="{{route('admin.all')}}"><i class="fa fa-circle-o"></i> All Image</a></li>
+                <li><a href="{{route('admin.all.gallery')}}"><i class="fa fa-circle-o"></i> All Image</a></li>
                 <li><a href="{{route('admin.all.album')}}"><i class="fa fa-folder-open"></i> Album</a></li>
-                <li><a href="{{route('admin.add')}}"><i class="fa fa-plus-square"></i>New Image</a></li>
+                <li><a href="{{route('admin.add.gallery')}}"><i class="fa fa-plus-square"></i>New Image</a></li>
             </ul>
         </li>
         <!-- ----------------------------END of Gallery---------------------------------- -->

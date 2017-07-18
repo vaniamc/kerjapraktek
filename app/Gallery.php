@@ -21,7 +21,7 @@ class Gallery extends Model
      */
     protected $dates = ['deleted_at'];
 
-    public function hasAlbum()
+    public function album()
     {
     	return $this->belongsTo('App\Album','album_id','album_id');
     }

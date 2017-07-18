@@ -8,43 +8,39 @@
 			<div class="row">
 				<div class="col-md-8">
 					<div class="content ot-article">
-						<h3>Telkom Corporate University</h3>
-
-						<h5>Alamat : Jalan Gegerkalong Hilir no 47, Bandung, 40152<br>
-						Lat/Long : -6.871316, 107.589773<br>
-						E-mail : helpdesk.learning@telkom.co.id<br>
-							Phone : 022 2014508<br>
-						Website : https://corpu.telkom.co.id/</h5>
-
-						{{--<div class="ot-social-button">--}}
-							{{--<a href="#"><img src="images/line.png" alt=""></a>--}}
-							{{--<div class="ot-social-details">--}}
-								{{--<div class="ot-social-count">Line</div>--}}
-								{{--<div class="ot-social-type">@happytripkorea</div>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-						{{--<div class="ot-social-button">--}}
-							{{--<a href="https://www.instagram.com/happytripkorea/"><img src="images/instagram.png" alt=""></a>--}}
-							{{--<div class="ot-social-details">--}}
-								{{--<div class="ot-social-count">Instagram</div>--}}
-								{{--<div class="ot-social-type">@happytripkorea</div>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-						{{--<div class="ot-social-button">--}}
-							{{--<a href="#"><img src="images/whatsapp.png" alt=""></a>--}}
-							{{--<div class="ot-social-details">--}}
-								{{--<div class="ot-social-count">WA</div>--}}
-								{{--<div class="ot-social-type">081936561526 - Jakarta</div>--}}
-								{{--<div class="ot-social-type"> WA 081916641251 - Bali</div>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-						{{--<div class="ot-social-button">--}}
-							{{--<a href="https://www.facebook.com/happytripkorea/"><img src="images/facebook.png" alt=""></a>--}}
-							{{--<div class="ot-social-details">--}}
-								{{--<div class="ot-social-count">Facebook</div>--}}
-								{{--<div class="ot-social-type">Happy Trip Korea</div>--}}
-							{{--</div>--}}
-						{{--</div>--}}
+						<h3>Helpdesk - Telkom Corporate University</h3>
+						<div class="col-md-2">
+							<h5>
+								<i class="fa fa-building"></i> Walk In
+							</h5>
+						</div>
+						<div class="col-md-10">
+							<h5>Jalan Gegerkalong Hilir No. 47<br>Information Building (Gedung H)<br>Bandung-Indonesia</h5>
+						</div>
+						<div class="col-md-2">
+							<h5>
+								<i class="fa fa-phone-square"></i> Phone <br><i class="fa fa-phone" aria-hidden="true"></i> WhatsApp
+							</h5>
+						</div>
+						<div class="col-md-10">
+							<h5>022-2016907 <br> 0813-1221-6300</h5>
+						</div>
+						<div class="col-md-2">
+							<h5>
+								<i class="fa fa-envelope"></i> E-mail
+							</h5>
+						</div>
+						<div class="col-md-10">
+							<h5>helpdesk.learning@telkom.co.id</h5>
+						</div>
+						<div class="col-md-2">
+							<h5>
+								<i class="fa fa-globe"></i> Website
+							</h5>
+						</div>
+						<div class="col-md-10">
+							<h5>http://mycorner.telkom.co.id</h5>
+						</div>
 
 						<div class="clearfix"></div>
 						<h3 class="section-title"><span>Maps</span></h3>

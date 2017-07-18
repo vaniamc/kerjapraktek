@@ -9,7 +9,8 @@
 		    <div class="container">
 		        <div class="row">
 		            <div class="col-lg-12">
-		                <h1>Telkom Corporate University News Center</h1>
+						<h2 class="section-title-header">Telkom Corporate University News Center</h2>
+
 		                <!-- <p>
 		                    Lorem ipsum is the best
 		                </p> -->
@@ -55,7 +56,7 @@
                                                 echo $edited;
                                             ?>
 										</p>
-										<div class="read-more pull-right"><a href="{{url('blog',$row->blog_id)}}" class="btn btn-default btn-secondary">read more</a></div>
+										<div class="read-more pull-right"><a href="{{url('blog',$row->blog_id)}}" class="btn btn-default btn-sm">read more</a></div>
 									</div>
 
 								</div>

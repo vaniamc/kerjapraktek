@@ -17,6 +17,14 @@
 		        {{Form::label('title', 'Title')}}
 		        {{Form::text('title',$blog->blog_title,array('class' => 'form-control', 'placeholder'=>'Title', 'name'=>'title-blog'))}}
 	        </div>
+	        <div class="form-group">
+		        {{Form::label('category', 'Category')}}
+		        <select class="form-control" name="category_id">
+		          @foreach($category as $row)
+		          <option value="{{$row->category_id}}" {{($row->category_id == $blog->category_id) ? 'selected' : '' }}>{{$row->category_name}}</option>
+		          @endforeach
+		        </select>
+	        </div>
 			<div class="form-group">
 				{{Form::label('title', 'Picture')}}
 		        <input name="blog_picture" type="file" class="form-control" id="imgInp">

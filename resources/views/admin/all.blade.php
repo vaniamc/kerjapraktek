@@ -8,6 +8,7 @@
           <tr>
             <th class="text-center">#</th>
             <th class="text-center">Title</th>
+            <th class="text-center">Category</th>
             <th class="text-center">Date Created</th>
             <th class="text-center">Published</th>
             <th class="text-center">Action</th>
@@ -19,6 +20,13 @@
           <tr>
               <td class="text-center">{{$no++}}</td>
               <td class="text-center">{{$row->blog_title}}</td>
+              <td class="text-center">
+                @if($row->category == NULL)
+                  -
+                @else
+                  {{$row->category->category_name}}
+                @endif
+              </td>
               <td class="text-center">{{$row->created_at}}</td>
               <td class="text-center">
                 @if($row->blog_publish == 1)

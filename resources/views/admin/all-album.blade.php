@@ -1,9 +1,5 @@
 @extends('layout.master')
 
-@section('css')
-<link rel="stylesheet" type="text/css" href="{{asset('css/tcu.css')}}">
-@stop
-
 @section('content')
   <div class="box">
     <div class="box-body">

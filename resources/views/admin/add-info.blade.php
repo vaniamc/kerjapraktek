@@ -1,10 +1,5 @@
 @extends('layout.master')
 
-@section('css')
-<!-- include summernote css/js-->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
-@stop
-
 @section('content')
 
 <!-- Form Pencarian -->
@@ -32,7 +27,6 @@
 @stop
 
 @section('js')
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
 <script>
 	function readURL(input) {
         if (input.files && input.files[0]) {

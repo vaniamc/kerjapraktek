@@ -33,9 +33,12 @@
 									<div class="list-post-container">
 										<a href="{{url('blog',$row->blog_id)}}">
 											@if($row->blog_picture == NULL)
-											<img src="{{asset('images/blog/none.jpg')}}" alt="your image" class="img-responsive" />
+												<img src="{{asset('images/blog/none.jpg')}}" alt="your image" class="img-responsive" />
+												<div class="post-cat2"><span style="background-color: #ff001e">Gadgets</span></div>
 											@else
-											<img src="{{asset('images/blog/'.$row->blog_picture)}}" alt="your image" class="img-responsive" />
+												<img src="{{asset('images/blog/'.$row->blog_picture)}}" alt="your image" class="img-responsive" />
+												{{--<div class="post-cat2"><span style="background-color: #F0CE49">Gadgets</span></div>--}}
+												<div class="post-cat2"><span style="background-color: #ff001e">Gadgets</span></div>
 											@endif
 										</a>
 									</div>

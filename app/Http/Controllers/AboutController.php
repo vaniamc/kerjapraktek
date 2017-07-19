@@ -12,22 +12,25 @@ class AboutController extends Controller
     public function about()
     {
         $blog = blog::all();
-//        dd($blog[0]);
         return view('about.index',compact('blog'));
     }
 
     public function contact()
     {
         $blog = blog::all();
-//        dd($blog[0]);
         return view('contact.index',compact('blog'));
     }
 
     public function schedule()
     {
         $blog = blog::all();
-//        dd($blog[0]);
         return view('training_schedule.index',compact('blog'));
+    }
+
+    public function gallery()
+    {
+        $blog = blog::all();
+        return view('gallery.index',compact('blog'));
     }
 
     public function home()

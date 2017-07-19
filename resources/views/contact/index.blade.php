@@ -31,7 +31,8 @@
 							</h5>
 						</div>
 						<div class="col-md-10">
-							<h5>helpdesk.learning@telkom.co.id</h5>
+							<a href="mailto:helpdesk.learning@telkom.co.id"><h5>helpdesk.learning@telkom.co.id</h5></a>
+							{{--<h5>helpdesk.learning@telkom.co.id</h5>--}}
 						</div>
 						<div class="col-md-2">
 							<h5>

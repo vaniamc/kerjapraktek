@@ -47,15 +47,15 @@ class AboutController extends Controller
     public function gallery()
     {
         $album = Album::with('gallery')->get();
-        dd($album);
+        //dd($album);
         return view('gallery.index',compact('album'));
     }
 
-    public function photo()
+    public function galleryAlbum($id)
     {
-        $blog = blog::all();
-
-        return view('gallery.photo',compact('blog'));
+        $gallery = Gallery::with('album')->where('album_id',$id)->get();
+        $album = Album::with('gallery')->where('album_id',$id)->first();
+        return view('gallery.photo',compact('gallery','album'));
     }
 
     public function home()

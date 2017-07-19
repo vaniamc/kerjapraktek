@@ -18,9 +18,10 @@ Route::get('/', function () {
 Route::get('/contact', 'AboutController@contact' );
 Route::get('/schedule', 'AboutController@schedule' );
 Route::get('/gallery', 'AboutController@gallery' );
+Route::get('/gallery/{id}', 'AboutController@galleryAlbum' );
 
 
-Route::get('/photo', 'AboutController@photo' );
+// Route::get('/photo', 'AboutController@photo' );
 
 
 

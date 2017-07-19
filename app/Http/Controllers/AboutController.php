@@ -16,43 +16,31 @@ class AboutController extends Controller
 {
     public function about()
     {
-<<<<<<< HEAD
+
         $blog = blog::all();
         return view('about.index',compact('blog'));
-=======
         $blog = Blog::with('category')->get();
         $info = Info::all();
-//        dd($blog[0]);
         return view('about.index',compact('blog','info'));
->>>>>>> 9bd7012de386cf5615ea79d68bdd2ae54d5ddd84
+
     }
 
     public function contact()
     {
-<<<<<<< HEAD
-        $blog = blog::all();
-        return view('contact.index',compact('blog'));
-=======
         $blog = Blog::with('category')->get();
         $info = Info::all();
         //dd($info);
         return view('contact.index',compact('blog','info'));
->>>>>>> 9bd7012de386cf5615ea79d68bdd2ae54d5ddd84
     }
 
     public function schedule()
     {
-<<<<<<< HEAD
-        $blog = blog::all();
-        return view('training_schedule.index',compact('blog'));
-=======
+
         $blog = Blog::with('category')->get();
         $info = Info::all();
         $schedule_month = Schedule::find(2);
         $schedule_week = Schedule::find(1);
-//        dd($blog[0]);
         return view('training_schedule.index',compact('blog','schedule_week','schedule_month','info'));
->>>>>>> 9bd7012de386cf5615ea79d68bdd2ae54d5ddd84
     }
 
     public function gallery()

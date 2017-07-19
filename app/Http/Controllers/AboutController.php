@@ -46,10 +46,9 @@ class AboutController extends Controller
 
     public function gallery()
     {
-        $blog = blog::all();
-        $info = Info::all();
-        $category = Category::all();
-        return view('gallery.index',compact('blog','category','info'));
+        $album = Album::with('gallery')->get();
+        dd($album);
+        return view('gallery.index',compact('album'));
     }
 
     public function photo()

@@ -117,9 +117,9 @@
 		<!-- widget tag cloud -->
 		<div class="widget-container widget_tag_cloud">
 			<h4 class="section-title">Category</h4>
-			<div class="tag_item"><a href='category.html' title='Fashion'>HCM</a><span>34</span></div>
-			<div class="tag_item"><a href='category.html' title='Fashion'>LO</a><span>54</span></div>
-			<div class="tag_item"><a href='category.html' title='Fashion'>KCMS</a><span>2</span></div>
+			@foreach($category as $row => $cat)
+				<div class="tag_item"><a href="{{url('category',$cat->category_id)}}">{{$cat->category_name}}</a></div>
+			@endforeach
 		</div>
 		<!-- end widget tag cloud -->
 		<div class="widget-container widget_tag_cloud">

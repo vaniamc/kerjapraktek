@@ -44,7 +44,7 @@
 									    </div>
 									  </div>
 									</form>
-								</div>
+								</div><br>
 								@if(count($blog) < 1)
 									<center><h4 style="color: #B81D1D">There are no posts</h4></center>
 								@else
@@ -55,8 +55,14 @@
 											<a href="{{url('blog',$row->blog_id)}}">
 												@if($row->blog_picture == NULL)
 												<img src="{{asset('images/blog/none.jpg')}}" alt="your image" class="img-responsive" />
+													@if($row->category != NULL)
+													<div class="post-cat2"><span style="background-color: #ff001e">{{$row->category->category_name}}</span></div>
+													@endif
 												@else
 												<img src="{{asset('images/blog/'.$row->blog_picture)}}" alt="your image" class="img-responsive" />
+													@if($row->category != NULL)
+													<div class="post-cat2"><span style="background-color: #ff001e">{{$row->category->category_name}}</span></div>
+													@endif
 												@endif
 											</a>
 										</div>

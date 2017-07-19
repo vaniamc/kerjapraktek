@@ -4,30 +4,29 @@
 	<!-- main content -->
 	<!-- main content -->
 	<section class="ot-section-a">
+		<div class="jumbotron jumbotron-billboard">
+		  <div class="img"></div>
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-lg-12">
+						<h2 class="section-title-header">Telkom Corporate University News Center</h2>
+
+		                <!-- <p>
+		                    Lorem ipsum is the best
+		                </p> -->
+		            </div>
+		        </div>
+		    </div>
+		</div>
 		<!-- container -->
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8">
 					<div class="ot-module">
 						<!-- classic grid posts section -->
-						<h4 class="section-title"><span>Telkom Corporate University</span>News with Content: "{{$text}}"</h4>
+						<h4 class="section-title"><span>Telkom Corporate University</span>Latest News with Category: {{$nama_cat->category_name}}</h4>
 						<div class="row">
 							<div class="col-md-12">
-								<div class="widget-container widget_tag_cloud">
-									<form role="form" method="get" action="{{url('/search')}}">
-									  <!-- {{csrf_field()}} -->
-									  <!-- select -->
-									  <div class="form-group">
-									    <label>Search Content : </label>
-									    <div class="tag_item">
-									    	<input type="search" class="form-control slate" placeholder="Type to search" name="search_input" id="s">
-									    </div>
-									    <div class="tag_item">
-									    	<button type="submit" class="btn-default btn-submit">Search <i class="fa fa-search"></i></button>
-									    </div>
-									  </div>
-									</form>
-								</div><br>
 								@if(count($blog) < 1)
 									<center><h4 style="color: #B81D1D">There are no posts</h4></center>
 								@else
@@ -37,12 +36,13 @@
 										<div class="list-post-container">
 											<a href="{{url('blog',$row->blog_id)}}">
 												@if($row->blog_picture == NULL)
-												<img src="{{asset('images/blog/none.jpg')}}" alt="your image" class="img-responsive" />
+													<img src="{{asset('images/blog/none.jpg')}}" alt="your image" class="img-responsive" />
 													@if($row->category != NULL)
 													<div class="post-cat2"><span style="background-color: #ff001e">{{$row->category->category_name}}</span></div>
 													@endif
 												@else
-												<img src="{{asset('images/blog/'.$row->blog_picture)}}" alt="your image" class="img-responsive" />
+													<img src="{{asset('images/blog/'.$row->blog_picture)}}" alt="your image" class="img-responsive" />
+													{{--<div class="post-cat2"><span style="background-color: #F0CE49">Gadgets</span></div>--}}
 													@if($row->category != NULL)
 													<div class="post-cat2"><span style="background-color: #ff001e">{{$row->category->category_name}}</span></div>
 													@endif
@@ -66,7 +66,7 @@
 	                                                echo $edited;
 	                                            ?>
 											</p>
-											<div class="read-more pull-right"><a href="{{url('blog',$row->blog_id)}}" class="btn btn-default btn-secondary">read more</a></div>
+											<div class="read-more pull-right"><a href="{{url('blog',$row->blog_id)}}" class="btn btn-default btn-sm">read more</a></div>
 										</div>
 
 									</div>

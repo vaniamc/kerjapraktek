@@ -22,6 +22,7 @@ Route::get('/', 'AboutController@home' );
 Route::get('/index', 'AboutController@home' )->name('index');
 Route::get('blog/searchdate','AboutController@searchdate');
 Route::get('search','AboutController@search');
+Route::get('category/{id}','AboutController@categorySearch');
 
 
 /* Admin Routes*/

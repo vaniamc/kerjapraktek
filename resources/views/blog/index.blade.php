@@ -6,9 +6,9 @@
             <div class="wide-article-container">
                 <div class="article-heading">
                     <div class="main-heading">
-                        <!-- <div class="post-cat2">
-                            <span><a href="category.html">Computers</a></span>
-                        </div> -->
+                        <div class="post-cat2">
+                            <span><a href="{{url('category',$row->category->category_id)}}">{{$row->category->category_name}}</a></span>
+                        </div>
                         <h2>{{$row->blog_title}}</h2>
                         <h4>by Administrator</h4>
                     </div>
@@ -43,7 +43,7 @@
                                 <?php echo $row->blog_content?>
                             </p>
                         </div>
-                        <div class="ot-article-tags"><span><i class="fa fa-tags"></i></span><a href="index-grid.html">Street Art</a> <a href="index-grid.html">Fashion</a></div>
+                        <h4 class="section-title"><span>Telkom Corporate University</span></h4>
 
                         <div class="ot-next-prev-cont">
                             @if($blog_prev != NULL)

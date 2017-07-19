@@ -25,7 +25,7 @@ class AboutController extends Controller
 
     public function contact()
     {
-        $blogs = Blog::latest()->where('blog_publish','1')->paginate(2);
+        $blogs = Blog::latest()->where('blog_publish','1')->paginate(3);
         $blog = Blog::with('category')->get();
         $info = Info::all();
         $category = Category::all();
@@ -35,7 +35,7 @@ class AboutController extends Controller
 
     public function schedule()
     {
-        $blogs = Blog::latest()->where('blog_publish','1')->paginate(2);
+        $blogs = Blog::latest()->where('blog_publish','1')->paginate(3);
         $blog = Blog::with('category')->get();
         $info = Info::all();
         $category = Category::all();
@@ -61,7 +61,7 @@ class AboutController extends Controller
 
     public function home()
     {
-        $blogs = Blog::latest()->where('blog_publish','1')->paginate(2);
+        $blogs = Blog::latest()->where('blog_publish','1')->paginate(3);
         $blog = Blog::with('category')->where('blog_publish','1')->orderBy('created_at', 'desc')->get();
         $info = Info::all();
         $category = Category::all();
@@ -71,6 +71,7 @@ class AboutController extends Controller
 
     public function searchdate(Request $request)
     {
+        $blogs = Blog::latest()->where('blog_publish','1')->paginate(3);
         $info = Info::all();
         $category = Category::all();
         $year = $request->input('select_year');
@@ -84,27 +85,29 @@ class AboutController extends Controller
             $month = $month->format('F');
         }
         //dd($blog);
-        return view('blog.search',compact('blog','year', 'month','info','category'));
+        return view('blog.search',compact('blog','year', 'month','info','category','blogs'));
     }
 
     public function search(Request $request)
     {
+        $blogs = Blog::latest()->where('blog_publish','1')->paginate(3);
         $info = Info::all();
         $category = Category::all();
         $text = $request->input('search_input');
         $blog = Blog::with('category')->where('blog_publish','1')->where('blog_title', 'like', '%'.$text.'%')->orWhere('blog_publish','1')->where('blog_content', 'like', '%'.$text.'%')->orderBy('created_at', 'desc')->get();
         //dd($blog);
-        return view('home.search',compact('blog','text','info','category'));
+        return view('home.search',compact('blog','text','info','category','blogs'));
     }
 
     public function categorySearch($id)
     {
+        $blogs = Blog::latest()->where('blog_publish','1')->paginate(3);
         $blog = Blog::with('category')->where('blog_publish','1')->where('category_id',$id)->orderBy('created_at', 'desc')->get();
         $info = Info::all();
         $category = Category::all();
         $nama_cat = Category::where('category_id',$id)->first();
 //        dd($blog[0]);
-        return view('home.category',compact('blog','info','category','nama_cat'));
+        return view('home.category',compact('blog','info','category','nama_cat','blogs'));
     }
 
 }

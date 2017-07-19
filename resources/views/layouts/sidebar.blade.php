@@ -8,26 +8,24 @@
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
 						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#myCarousel" data-slide-to="1"></li>
-						<li data-target="#myCarousel" data-slide-to="2"></li>
+						<?php for($i = 1; $i < $info->count(); $i++):
+						echo "<li data-target="."#myCarousel"." data-slide-to=".$i."></li>";
+						endfor;
+						?>
 					</ol>
 
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
 						<div class="item active">
-							<h5>SOCIO DIGI LEADERS </h5>
-							<img src="{{asset('images/ads.jpeg')}}" alt="Socio Digi Leaders" style="width:300px;">
+							<h5>{{$info[0]->info_title}}</h5>
+							<img src="{{asset('images/info/'.$info[0]->info_poster)}}" style="width:300px;">
 						</div>
-
+						@for($i = 1; $i < $info->count(); $i++)
 						<div class="item">
-							<h5>INDIHOME FRONTLINER </h5>
-							<img id="myImg" src="{{asset('images/indi.jpg')}}" alt="IndiHome Frontliner" style="width:300px;">
+							<h5>{{$info[''.$i.'']->info_title}}</h5>
+							<img src="{{asset('images/info/'.$info[''.$i.'']->info_poster)}}" style="width:300px;">
 						</div>
-
-						<div class="item">
-							<h5>HR HELPDESK </h5>
-							<img id="myImg" src="{{asset('images/ee.jpg')}}" alt="HR Helpdesk" style="width:300px;">
-						</div>
+						@endfor
 					</div>
 
 					<!-- Left and right controls -->

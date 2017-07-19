@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\blog;
+use App\Category;
+use App\Info;
 use DB;
 
 class BlogController extends Controller
 {
     public function index($blog_id)
     {
-        $count = blog::where('blog_publish','1')->get();
+        $info = Info::all();
+        $count = Blog::with('category')->where('blog_publish','1')->get();
         //dd($count);
         $num = $count->count();
         $set = 0;
@@ -32,8 +35,8 @@ class BlogController extends Controller
 		   		$set = 1;
 		    }
 		}
-        $row = blog::all()->where('blog_id',$blog_id)->first();
+        $row = Blog::with('category')->where('blog_id',$blog_id)->first();
         //dd($blog_prev,$blog_next);
-        return view('blog.index',compact('blog','row','blog_prev','blog_next'));
+        return view('blog.index',compact('blog','row','blog_prev','blog_next','info'));
     }
 }

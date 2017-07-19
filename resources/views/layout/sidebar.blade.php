@@ -66,8 +66,8 @@
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="{{route('admin.all')}}"><i class="fa fa-circle-o"></i> Weekly</a></li>
-                <li><a href="{{route('admin.published')}}"><i class="fa fa-circle-o"></i> Monthly</a></li>
+                <li><a href="{{route('admin.week.sched')}}"><i class="fa fa-circle-o"></i> Weekly</a></li>
+                <li><a href="{{route('admin.month.sched')}}"><i class="fa fa-circle-o"></i> Monthly</a></li>
             </ul>
         </li>
         <!-- ----------------------------END of TRAINING---------------------------------- -->

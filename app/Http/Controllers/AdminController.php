@@ -8,6 +8,7 @@ use App\Category;
 use App\Info;
 use App\Album;
 use App\Gallery;
+use App\Schedule;
 use DB;
 
 class AdminController extends Controller
@@ -176,7 +177,7 @@ class AdminController extends Controller
 
     public function addInfo()
     {
-        $data['page_title'] = 'Telkom CorpU News Center |New Info';
+        $data['page_title'] = 'Telkom CorpU News Center | New Info';
         $data['count_all'] = Blog::all()->count();
         $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
         //dd($data['blog']);
@@ -362,5 +363,69 @@ class AdminController extends Controller
         $id = $request->input('gallery_id');
         $gallery = Gallery::destroy($id);
         if($gallery) return redirect('dashboard/gallery');
+    }
+
+    public function monthlySchedule()
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | Monthly Training Schedule';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['schedule'] = Schedule::find(2);
+        //dd($data['blog']);
+        return view('admin.monthly', $data);
+    }
+
+    public function editMonthlySchedule()
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | Monthly Training Schedule';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['schedule'] = Schedule::find(2);
+        //dd($data['blog']);
+        return view('admin.edit-monthly', $data);
+    }
+
+    public function submitMonthlySchedule(Request $request, $id)
+    {
+        $videoName = 'monthly'.'.'.$request->file('video-link')->getClientOriginalExtension();
+        DB::table('schedule')->where('schedule_id', $id)->update([
+            'schedule_link' => $videoName,
+        ]);
+        $request->file('video-link')->move(
+            base_path() . '/public/video/monthly/', $videoName
+        );
+        return redirect('dashboard/schedule/monthly');
+    }
+
+    public function weeklySchedule()
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | Weekly Training Schedule';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['schedule'] = Schedule::find(1);
+        //dd($data['blog']);
+        return view('admin.weekly', $data);
+    }
+
+    public function editWeeklySchedule()
+    {
+        $data['page_title'] = 'Telkom CorpU News Center | Weekly Training Schedule';
+        $data['count_all'] = Blog::all()->count();
+        $data['count_pub'] = Blog::all()->where('blog_publish','1')->count();
+        $data['schedule'] = Schedule::find(1);
+        //dd($data['blog']);
+        return view('admin.edit-weekly', $data);
+    }
+
+    public function submitWeeklySchedule(Request $request, $id)
+    {
+        $videoName = 'weekly'.'.'.$request->file('video-link')->getClientOriginalExtension();
+        DB::table('schedule')->where('schedule_id', $id)->update([
+            'schedule_link' => $videoName,
+        ]);
+        $request->file('video-link')->move(
+            base_path() . '/public/video/weekly/', $videoName
+        );
+        return redirect('dashboard/schedule/weekly');
     }
 }

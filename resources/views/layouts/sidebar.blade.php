@@ -15,18 +15,18 @@
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
 						<div class="item active">
-							<h5>SOCIO DIGITAL </h5>
-							<img src="{{asset('images/ads.jpeg')}}" alt="Los Angeles" style="width:300px;">
+							<h5>SOCIO DIGI LEADERS </h5>
+							<img src="{{asset('images/ads.jpeg')}}" alt="Socio Digi Leaders" style="width:300px;">
 						</div>
 
 						<div class="item">
 							<h5>INDIHOME FRONTLINER </h5>
-							<img src="{{asset('images/indi.jpg')}}" alt="Chicago" style="width:300px;">
+							<img id="myImg" src="{{asset('images/indi.jpg')}}" alt="IndiHome Frontliner" style="width:300px;">
 						</div>
 
 						<div class="item">
-							<h5>HR HELPDESK</h5>
-							<img src="{{asset('images/ee.jpg')}}" alt="New york" style="width:300px;">
+							<h5>HR HELPDESK </h5>
+							<img id="myImg" src="{{asset('images/ee.jpg')}}" alt="HR Helpdesk" style="width:300px;">
 						</div>
 					</div>
 
@@ -40,6 +40,35 @@
 						<span class="sr-only">Next</span>
 					</a>
 				</div>
+			<!-- The Modal -->
+			<div style="z-index: 99 !important" id="myModal" class="modal">
+				<span class="close">&times;</span>
+				<img class="modal-content" id="img01">
+				<div id="caption"></div>
+			</div>
+
+			<script>
+                // Get the modal
+                var modal = document.getElementById('myModal');
+
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = document.getElementById('myImg');
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function(){
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                }
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+			</script>
 		</div>
 		<!-- end widget advertisement -->
 		<!-- widget articles section -->

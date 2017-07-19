@@ -54,6 +54,13 @@ class AboutController extends Controller
         return view('gallery.index',compact('blog','category','info'));
     }
 
+    public function photo()
+    {
+        $blog = blog::all();
+
+        return view('gallery.photo',compact('blog'));
+    }
+
     public function home()
     {
         $blog = Blog::with('category')->where('blog_publish','1')->orderBy('created_at', 'desc')->get();

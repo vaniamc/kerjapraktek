@@ -18,6 +18,12 @@ Route::get('/', function () {
 Route::get('/contact', 'AboutController@contact' );
 Route::get('/schedule', 'AboutController@schedule' );
 Route::get('/gallery', 'AboutController@gallery' );
+
+
+Route::get('/photo', 'AboutController@photo' );
+
+
+
 Route::get('/', 'AboutController@home' );
 Route::get('/index', 'AboutController@home' )->name('index');
 Route::get('blog/searchdate','AboutController@searchdate');

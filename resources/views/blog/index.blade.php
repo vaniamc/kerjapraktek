@@ -9,7 +9,7 @@
                         <div class="post-cat2">
                             <span><a href="{{url('category',$row->category->category_id)}}">{{$row->category->category_name}}</a></span>
                         </div>
-                        <h2>{{$row->blog_title}}</h2>
+                        <h3>{{$row->blog_title}}</h3>
                         <h4>by Administrator</h4>
                     </div>
                     <div class="post-meta">

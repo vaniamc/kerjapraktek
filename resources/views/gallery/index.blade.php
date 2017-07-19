@@ -31,7 +31,7 @@
 				<div class="row row-slider-gutter">
 					<div class="col-md-4 slider-item-small">
 						<figure>
-							<a href="post.html"><img src="images/demo/1200x800-6.jpg" alt=""></a>
+							<a href="{{url('photo')}}"><img src="images/demo/1200x800-6.jpg" alt=""></a>
 							<figcaption>
 								<h2><a href="post.html">Selfie Fables - Disney Alternative Art Illustrations by Simona Bonafini</a></h2>
 								<div class="post-meta">
@@ -42,7 +42,7 @@
 					</div>
 					<div class="col-md-4 slider-item-small">
 						<figure>
-							<a href="post.html"><img src="images/demo/1200x800-3.jpg" alt=""></a>
+							<a href="{{url('photo')}}"><img src="images/demo/1200x800-3.jpg" alt=""></a>
 							<figcaption>
 								<h2><a href="post.html">Make Stories Come Alive with Jodi Harvey-Brown Book Sculpture</a></h2>
 								<div class="post-meta">
@@ -53,7 +53,7 @@
 					</div>
 					<div class="col-md-4 slider-item-small">
 						<figure>
-							<a href="post.html"><img src="images/demo/1200x800-5.jpg" alt=""></a>
+							<a href="{{url('photo')}}"><img src="images/demo/1200x800-5.jpg" alt=""></a>
 							<figcaption>
 								<h2><a href="post.html">Illustrator Turns Your Deepest Fears Into Cute Comics</a></h2>
 								<div class="post-meta">
@@ -66,7 +66,7 @@
 				<div class="row row-slider-gutter">
 					<div class="col-md-4 slider-item-small">
 						<figure>
-							<a href="post.html"><img src="images/demo/1200x800-6.jpg" alt=""></a>
+							<a href="{{url('photo')}}"><img src="images/demo/1200x800-6.jpg" alt=""></a>
 							<figcaption>
 								<h2><a href="post.html">Selfie Fables - Disney Alternative Art Illustrations by Simona Bonafini</a></h2>
 								<div class="post-meta">
@@ -77,7 +77,7 @@
 					</div>
 					<div class="col-md-4 slider-item-small">
 						<figure>
-							<a href="post.html"><img src="images/demo/1200x800-3.jpg" alt=""></a>
+							<a href="{{url('photo')}}"><img src="images/demo/1200x800-3.jpg" alt=""></a>
 							<figcaption>
 								<h2><a href="post.html">Make Stories Come Alive with Jodi Harvey-Brown Book Sculpture</a></h2>
 								<div class="post-meta">
@@ -88,7 +88,7 @@
 					</div>
 					<div class="col-md-4 slider-item-small">
 						<figure>
-							<a href="post.html"><img src="images/demo/1200x800-5.jpg" alt=""></a>
+							<a href="{{url('photo')}}"><img src="images/demo/1200x800-5.jpg" alt=""></a>
 							<figcaption>
 								<h2><a href="post.html">Illustrator Turns Your Deepest Fears Into Cute Comics</a></h2>
 								<div class="post-meta">

@@ -96,7 +96,7 @@ class AboutController extends Controller
         $blog = Blog::with('category')->where('blog_publish','1')->where('category_id',$id)->orderBy('created_at', 'desc')->get();
         $info = Info::all();
         $category = Category::all();
-        $nama_cat = Category::find($id)->first();
+        $nama_cat = Category::where('category_id',$id)->first();
 //        dd($blog[0]);
         return view('home.category',compact('blog','info','category','nama_cat'));
     }

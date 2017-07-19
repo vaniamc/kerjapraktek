@@ -9,7 +9,7 @@
 					<ol class="carousel-indicators">
 						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 						<?php for($i = 1; $i < $info->count(); $i++):
-						echo "<li data-target="."#myCarousel"." data-slide-to=".$i." class="."active"."></li>";
+						echo "<li data-target="."#myCarousel"." data-slide-to=".$i."></li>";
 						endfor;
 						?>
 					</ol>

@@ -16,7 +16,7 @@ class AboutController extends Controller
 {
     public function about()
     {
-        $blog = Blog::all();
+        $blog = Blog::with('category')->get();
         $info = Info::all();
 //        dd($blog[0]);
         return view('about.index',compact('blog','info'));
@@ -24,7 +24,7 @@ class AboutController extends Controller
 
     public function contact()
     {
-        $blog = Blog::all();
+        $blog = Blog::with('category')->get();
         $info = Info::all();
         //dd($info);
         return view('contact.index',compact('blog','info'));
@@ -32,7 +32,7 @@ class AboutController extends Controller
 
     public function schedule()
     {
-        $blog = Blog::all();
+        $blog = Blog::with('category')->get();
         $info = Info::all();
         $schedule_month = Schedule::find(2);
         $schedule_week = Schedule::find(1);
@@ -42,7 +42,7 @@ class AboutController extends Controller
 
     public function home()
     {
-        $blog = Blog::all()->where('blog_publish','1')->sortByDesc('created_at');
+        $blog = Blog::with('category')->where('blog_publish','1')->orderBy('created_at', 'desc')->get();
         $info = Info::all();
 //        dd($blog[0]);
         return view('home.index',compact('blog','info'));
@@ -54,10 +54,10 @@ class AboutController extends Controller
         $year = $request->input('select_year');
         $month = $request->input('select_month');
         if($month == NULL){
-            $blog = Blog::whereYear('created_at', $year)->where('blog_publish','1')->orderBy('created_at', 'desc')->get();
+            $blog = Blog::with('category')->whereYear('created_at', $year)->where('blog_publish','1')->orderBy('created_at', 'desc')->get();
         }
         else{
-            $blog = Blog::whereYear('created_at', $year)->whereMonth('created_at',$month)->where('blog_publish','1')->orderBy('created_at', 'desc')->get();
+            $blog = Blog::with('category')->whereYear('created_at', $year)->whereMonth('created_at',$month)->where('blog_publish','1')->orderBy('created_at', 'desc')->get();
             $month = Carbon::createFromDate(null, $month, null);
             $month = $month->format('F');
         }
@@ -69,7 +69,7 @@ class AboutController extends Controller
     {
         $info = Info::all();
         $text = $request->input('search_input');
-        $blog = Blog::where('blog_publish','1')->where('blog_title', 'like', '%'.$text.'%')->orWhere('blog_publish','1')->where('blog_content', 'like', '%'.$text.'%')->orderBy('created_at', 'desc')->get();
+        $blog = Blog::with('category')->where('blog_publish','1')->where('blog_title', 'like', '%'.$text.'%')->orWhere('blog_publish','1')->where('blog_content', 'like', '%'.$text.'%')->orderBy('created_at', 'desc')->get();
         //dd($blog);
         return view('home.search',compact('blog','text','info'));
     }

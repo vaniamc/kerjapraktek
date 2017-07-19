@@ -13,7 +13,7 @@ class BlogController extends Controller
     public function index($blog_id)
     {
         $info = Info::all();
-        $count = blog::where('blog_publish','1')->get();
+        $count = Blog::with('category')->where('blog_publish','1')->get();
         //dd($count);
         $num = $count->count();
         $set = 0;
@@ -35,7 +35,7 @@ class BlogController extends Controller
 		   		$set = 1;
 		    }
 		}
-        $row = blog::all()->where('blog_id',$blog_id)->first();
+        $row = Blog::with('category')->where('blog_id',$blog_id)->first();
         //dd($blog_prev,$blog_next);
         return view('blog.index',compact('blog','row','blog_prev','blog_next','info'));
     }

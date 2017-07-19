@@ -58,7 +58,7 @@
 					<div class="col-md-6 slider-item-small">
 						<figure>
 							<a href="post.html"><img src="images/demo/1400x600-2.jpg" alt=""></a>
-							
+
 						</figure>
 					</div>
 				</div>

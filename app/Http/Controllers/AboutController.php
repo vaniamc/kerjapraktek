@@ -16,9 +16,6 @@ class AboutController extends Controller
 {
     public function about()
     {
-
-        $blog = blog::all();
-        return view('about.index',compact('blog'));
         $blog = Blog::with('category')->get();
         $info = Info::all();
         $category = Category::all();
@@ -28,22 +25,23 @@ class AboutController extends Controller
 
     public function contact()
     {
+        $blogs = Blog::latest()->where('blog_publish','1')->paginate(2);
         $blog = Blog::with('category')->get();
         $info = Info::all();
         $category = Category::all();
         //dd($info);
-        return view('contact.index',compact('blog','info','category'));
+        return view('contact.index',compact('blog','info','category','blogs'));
     }
 
     public function schedule()
     {
-
+        $blogs = Blog::latest()->where('blog_publish','1')->paginate(2);
         $blog = Blog::with('category')->get();
         $info = Info::all();
         $category = Category::all();
         $schedule_month = Schedule::find(2);
         $schedule_week = Schedule::find(1);
-        return view('training_schedule.index',compact('blog','schedule_week','schedule_month','info','category'));
+        return view('training_schedule.index',compact('blog','schedule_week','schedule_month','info','category','blogs'));
     }
 
     public function gallery()
@@ -63,11 +61,12 @@ class AboutController extends Controller
 
     public function home()
     {
+        $blogs = Blog::latest()->where('blog_publish','1')->paginate(2);
         $blog = Blog::with('category')->where('blog_publish','1')->orderBy('created_at', 'desc')->get();
         $info = Info::all();
         $category = Category::all();
 //        dd($blog[0]);
-        return view('home.index',compact('blog','info','category'));
+        return view('home.index',compact('blog','info','category', 'blogs'));
     }
 
     public function searchdate(Request $request)

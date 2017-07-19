@@ -71,46 +71,28 @@
 		<!-- end widget advertisement -->
 		<!-- widget articles section -->
 		<div class="widget-container">
-			<h4 class="section-title"><span>Most Viewed Post</span>Popular News</h4>
+			<h4 class="section-title"><span>Lastest News</span>Recent Post</h4>
 			<!-- article post -->
+			@foreach($blogs as $key => $rows)
+
 			<article class="widget-post">
 				<div class="post-image">
-					<a href="blog"><img src="{{asset('images/demo/1200x800-10.jpg')}}" alt=""></a>
+					<a href="{{url('blog',$rows->blog_id)}}">
+						@if($rows->blog_picture == NULL)
+							<img src="{{asset('images/blog/none.jpg')}}" alt="your image" class="img-responsive" />
+
+						@else
+							<img src="{{asset('images/blog/'.$rows->blog_picture)}}" alt="your image" class="img-responsive" />
+
+
+						@endif
+					</a>
 				</div>
 				<div class="post-body">
-					<h2><a href="blog">Make Stories Come Alive with Jodi Harvey-Brown</a></h2>
+					<h2><a href="{{url('blog',$rows->blog_id)}}">{{$rows->blog_title}}</a></h2>
 				</div>
 			</article>
-			<!-- end article item -->
-			<!-- article post -->
-			<article class="widget-post">
-				<div class="post-image">
-					<a href="blog"><img src="{{asset('images/demo/1200x800-11.jpg')}}" alt=""></a>
-				</div>
-				<div class="post-body">
-					<h2><span class="hot">Hot <i class="fa fa-bolt"></i></span><a href="blog">The View From a Peaceful Villa I Visited</a></h2>
-				</div>
-			</article>
-			<!-- end article item -->
-			<!-- article post -->
-			<article class="widget-post">
-				<div class="post-image">
-					<a href="blog"><img src="{{asset('images/demo/1200x800-9.jpg')}}" alt=""></a>
-				</div>
-				<div class="post-body">
-					<h2><a href="blog">Is This Outfit a Relationship Deal-Breaker?</a></h2>
-				</div>
-			</article>
-			<!-- end article item -->
-			<!-- article post -->
-			<article class="widget-post">
-				<div class="post-image">
-					<a href="blog"><img src="{{asset('images/demo/1200x800-12.jpg')}}" alt=""></a>
-				</div>
-				<div class="post-body">
-					<h2><a href="blog">The View From a Peaceful Villa I Visited</a></h2>
-				</div>
-			</article>
+			@endforeach
 			<!-- end article item -->
 		</div>
 		<!-- end widget articles section -->

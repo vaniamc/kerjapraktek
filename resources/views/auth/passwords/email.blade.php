@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-4 col-sm-8 col-xs-8 col-lg-4">  
             <div class="login-logo">
-                <a href="{{route('login')}}"><img src="{{asset('images/logo2.png')}}" class="img-responsive"></a>
+                <a href="{{route('index')}}"><img src="{{asset('images/logo2.png')}}" class="img-responsive"></a>
             </div>
         </div>
         <div class="col-md-4 col-sm-2 col-xs-2 col-lg-4">  

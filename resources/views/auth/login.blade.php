@@ -3,7 +3,7 @@
 @section('content')
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{route('login')}}"><img src="{{asset('images/logo2.png')}}" class="img-responsive"></a>
+    <a href="{{route('index')}}"><img src="{{asset('images/logo2.png')}}" class="img-responsive"></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

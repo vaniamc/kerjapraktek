@@ -7,7 +7,11 @@
                 <div class="article-heading">
                     <div class="main-heading">
                         <div class="post-cat2">
-                            <span><a href="{{url('category',$row->category->category_id)}}">{{$row->category->category_name}}</a></span>
+                            <span>
+                                @if($row->category != NULL)
+                                    <a href="{{url('category',$row->category->category_id)}}">{{$row->category->category_name}}</a>
+                                @endif
+                            </span>
                         </div>
                         <h3>{{$row->blog_title}}</h3>
                         <h4>by Administrator</h4>

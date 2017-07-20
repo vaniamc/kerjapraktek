@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UploadRequest;
 use App\Blog;
 use App\Category;
 use App\Info;
@@ -310,19 +311,17 @@ class AdminController extends Controller
         return view('admin.add-gallery', $data);
     }
 
-    public function insertGallery(Request $request){
-        $gallery = new Gallery();
-        $gallery->album_id = $request->input('album_id');
-        $imageName = 'blog_default.png';
-        if($request->file()!=null){
-            $imageName = time().'.'.$request->file('info-poster')->getClientOriginalExtension();
-        }
-        $gallery->gallery_path= $imageName;
-        $gallery->save();
-        if($request->file()!=null){
-                $request->file('info-poster')->move(
+    public function insertGallery(UploadRequest $request){
+        foreach($request->photos as $photo){
+            $gallery = new Gallery();
+            $gallery->album_id = $request->input('album_id');
+            $imageName = time().'.'.$photo->getClientOriginalExtension();
+            $gallery->gallery_path= $imageName;
+            $gallery->save();
+            $photo->move(
                 base_path() . '/public/images/gallery/', $imageName
             );
+            //dd($gallery);
         }
         return redirect('dashboard/gallery');
     }

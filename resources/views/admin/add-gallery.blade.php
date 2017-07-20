@@ -6,6 +6,13 @@
 <div class="box">
   <!-- /.box-header -->
   	<div class="box-body pad">
+  		@if (count($errors) > 0)
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    	@endif
     	{{Form::open(['route'=>'admin.insert.gallery', 'files'=> true])}}
     	<div class="box-body">
 	        <div class="form-group">
@@ -18,8 +25,7 @@
 	        </div>
 			<div class="form-group">
 				{{Form::label('title', 'Picture')}}
-		        <input name="info-poster" type="file" class="form-control" id="imgInp">
-		        <img id="blah" src="#" alt="your image" hidden/>
+		        <input name="photos[]" type="file" class="form-control" multiple>
 	        </div>
 	        <div class="form-group">
 	        	{{Form::submit('Save Image',array('class' => 'btn btn-primary btn-sm'))}}
@@ -28,26 +34,4 @@
 	    {{Form::close()}}
    	</div>
 </div>
-@stop
-
-@section('js')
-<script>
-	function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
-                document.getElementById("blah").removeAttribute("hidden");
-                document.getElementById("blah").setAttribute("class", "img-responsive");
-            }
-            
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
-    $("#imgInp").change(function(){
-        readURL(this);
-    });
-</script>
 @stop

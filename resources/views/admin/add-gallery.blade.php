@@ -9,7 +9,7 @@
   		@if (count($errors) > 0)
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li><span class="help-block" style="color:red;"><strong>{{ $error }}</strong></span></li>
             @endforeach
         </ul>
     	@endif

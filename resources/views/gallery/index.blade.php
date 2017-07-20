@@ -31,7 +31,7 @@
 					@foreach($album as $key => $row)
 					<div class="col-md-4 slider-item-small">
 						<figure>
-							<a href="{{url('gallery',$row->album_id)}}"><img src="{{asset('images/gallery/'.$row->gallery[0]->gallery_path)}}" alt=""></a>
+							<a href="{{url('gallery',$row->album_id)}}"><img src="{{asset('images/gallery/'.$row->gallery[0]->gallery_path)}}" alt="" style="object-fit: cover;"></a>
 							<figcaption>
 								<h2><a href="{{url('gallery',$row->album_id)}}">{{$row->album_name}}</a></h2>
 								<div class="post-meta">

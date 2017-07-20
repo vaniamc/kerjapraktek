@@ -37,7 +37,7 @@
 					@foreach($gallery as $key => $row)
 					<div class="col-md-4 slider-item-small">
 						<figure>
-							<a href="{{asset('images/gallery/'.$row->gallery_path)}}"><img src="{{asset('images/gallery/'.$row->gallery_path)}}" alt="" id="myImg"></a>
+							<a href="{{asset('images/gallery/'.$row->gallery_path)}}"><img src="{{asset('images/gallery/'.$row->gallery_path)}}" alt="" id="myImg" style="object-fit: cover;"></a>
 						</figure>
 					</div>
 					@endforeach
@@ -68,7 +68,7 @@
 		image: {
 			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
 			titleSrc: function(item) {
-				return item.el.attr('title') + '<small>by Marsel Van Oosten</small>';
+				return item.el.attr('title');
 			}
 		}
 	});

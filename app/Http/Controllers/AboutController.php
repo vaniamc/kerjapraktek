@@ -61,7 +61,7 @@ class AboutController extends Controller
     public function home()
     {
         $blogs = Blog::latest()->where('blog_publish','1')->paginate(3);
-        $blog = Blog::with('category')->where('blog_publish','1')->orderBy('created_at', 'desc')->get();
+        $blog = Blog::with('category')->where('blog_publish','1')->orderBy('created_at', 'desc')->paginate(5);
         $info = Info::all();
         $category = Category::all();
 //        dd($blog[0]);
@@ -101,7 +101,7 @@ class AboutController extends Controller
     public function categorySearch($id)
     {
         $blogs = Blog::latest()->where('blog_publish','1')->paginate(3);
-        $blog = Blog::with('category')->where('blog_publish','1')->where('category_id',$id)->orderBy('created_at', 'desc')->get();
+        $blog = Blog::with('category')->where('blog_publish','1')->where('category_id',$id)->orderBy('created_at', 'desc')->paginate(5);
         $info = Info::all();
         $category = Category::all();
         $nama_cat = Category::where('category_id',$id)->first();

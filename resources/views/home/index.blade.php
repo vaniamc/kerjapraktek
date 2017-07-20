@@ -71,6 +71,13 @@
 								@endforeach
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<center>
+									{{$blog->links()}}
+								</center>
+							</div>
+						</div>
 					</div>
 				</div>
 				@include('layouts.sidebar')

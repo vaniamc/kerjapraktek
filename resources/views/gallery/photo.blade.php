@@ -36,7 +36,7 @@
 				<div class="row row-slider-gutter popup-gallery">
 					@foreach($gallery as $key => $row)
 					<div class="col-md-4 slider-item-small">
-						<figure>
+						<figure class="thumbnail-image">
 							<a href="{{asset('images/gallery/'.$row->gallery_path)}}"><img src="{{asset('images/gallery/'.$row->gallery_path)}}" alt="" id="myImg" style="object-fit: cover;"></a>
 						</figure>
 					</div>

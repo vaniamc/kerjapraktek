@@ -315,3 +315,11 @@ select#soflow-color {
     }
 }
 
+figure.thumbnail-image{
+    height: 15em;
+    overflow-y: hidden;
+}
+
+figure.thumbnail-image img{
+    object-fit: fill;
+}

@@ -47,7 +47,7 @@
                     <a href="{{url('index')}}"><i class="fa fa-home"></i> Home </a><span class="sub_menu_toggle"></span>
                 </li>
                 <li>
-                    <a href="{{url('schedule')}}"><i class="fa fa-list"></i> Training Schedule </a><span class="sub_menu_toggle"></span>
+                    <a href="{{url('schedule')}}"><i class="fa fa-th-list"></i> Training Schedule </a><span class="sub_menu_toggle"></span>
                 </li>
                 <li>
                     <a href="{{url('gallery')}}"><i class="fa fa-photo"></i> Gallery </a><span class="sub_menu_toggle"></span>

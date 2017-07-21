@@ -31,11 +31,11 @@
 		<!-- container -->
 		<div class="container">
 			<!-- latest posts section -->
-			<h4 class="section-title"><span>Telkom Corporate University</span>Album: {{$album->album_name}} </h4>
+			<h1 class="section-title"><span><a href="{{url('gallery')}}"><i class="fa fa-reply"></i> Back</a></span><i class="fa fa-folder-open"></i>{{$album->album_name}} </h1>
 			<div class="ot-slider-b">
 				<div class="row row-slider-gutter popup-gallery">
 					@foreach($gallery as $key => $row)
-					<div class="col-md-4 slider-item-small">
+					<div class="col-md-3 slider-item-small">
 						<figure class="thumbnail-image">
 							<a href="{{asset('images/gallery/'.$row->gallery_path)}}"><img src="{{asset('images/gallery/'.$row->gallery_path)}}" alt="" id="myImg" style="object-fit: cover;"></a>
 						</figure>

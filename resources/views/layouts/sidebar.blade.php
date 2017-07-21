@@ -2,7 +2,7 @@
 	<aside class="sidebar">
 		<!-- widget advertisement -->
 		<div class="widget-container widget_tag_cloud">
-			<h4 class="section-title"><a href="http://news.telkom.co.id/index.php?act=news&cat_id=34&id=44661">HOT NEWS</a></h4>
+			<h4 class="section-title">HOT NEWS</h4>
 			{{--<img src="{{asset('images/ads.jpeg')}}" href="http://news.telkom.co.id/index.php?act=news&cat_id=34&id=44661" alt="" /> <br>--}}
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
@@ -115,7 +115,7 @@
 				    	<select class="styled-select slate" id="year" onchange="myFunction()" name="select_year"></select>
 				    </div>
 				    <div class="tag_item">
-				    	<button type="submit" class="btn-default btn-submit">Search</button>
+						<button type="submit" class="btn-default btn-submit">Search <i class="fa fa-search"></i></button>
 				    </div>
 				  </div>
 				</form>

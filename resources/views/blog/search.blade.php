@@ -40,7 +40,7 @@
 									    	</select>
 									    </div>
 									    <div class="tag_item">
-									    	<button type="submit" class="btn-default btn-submit">Search</button>
+											<button type="submit" class="btn-default btn-submit">Search <i class="fa fa-search"></i></button>
 									    </div>
 									  </div>
 									</form>

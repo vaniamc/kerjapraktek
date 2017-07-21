@@ -9,7 +9,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<h4 class="section-title-header">WEEKLY SCHEDULE</h4>
+						<h5 class="section-title-header">WEEKLY SCHEDULE</h5>
 						@if($schedule_week->schedule_link == NULL)
 						<iframe style="align-content: center"
 								width="1080" height="550" src="https://www.youtube.com/embed/j4NRyWwVtPE?autoplay=1" frameborder="5" allowfullscreen autoplay loop>

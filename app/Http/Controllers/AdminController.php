@@ -315,7 +315,7 @@ class AdminController extends Controller
         foreach($request->photos as $photo){
             $gallery = new Gallery();
             $gallery->album_id = $request->input('album_id');
-            $imageName = time().'.'.$photo->getClientOriginalExtension();
+            $imageName = time().'-'.$photo->getClientOriginalName().'.'.$photo->getClientOriginalExtension();
             $gallery->gallery_path= $imageName;
             $gallery->save();
             $photo->move(

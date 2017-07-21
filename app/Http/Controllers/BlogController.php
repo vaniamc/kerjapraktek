@@ -37,7 +37,7 @@ class BlogController extends Controller
 		    }
 		}
         $row = Blog::with('category')->where('blog_id',$blog_id)->first();
-        $blogs = Blog::latest()->where('blog_publish','1')->paginate(2);
+        $blogs = Blog::latest()->where('blog_publish','1')->paginate(3);
         //dd($blog_prev,$blog_next);
         return view('blog.index',compact('blog','row','blog_prev','blog_next','info','category','blogs'));
     }

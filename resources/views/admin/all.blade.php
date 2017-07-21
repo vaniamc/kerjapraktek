@@ -3,6 +3,7 @@
 @section('content')
   <div class="box">
     <div class="box-body">
+      <a href="{{route('admin.add')}}" class="btn btn-primary"><span>New Post </span><span class="glyphicon glyphicon-plus"></span></a><br><br>
       <table id="example1" class="table table-bordered table-striped">
         <thead>
           <tr>

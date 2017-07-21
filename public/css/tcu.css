@@ -321,6 +321,6 @@ figure.thumbnail-image{
 }
 
 figure.thumbnail-image img{
-    object-fit: fill;
+    object-fit: cover;
 
 }

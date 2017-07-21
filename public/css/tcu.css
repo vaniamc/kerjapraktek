@@ -324,3 +324,58 @@ figure.thumbnail-image img{
     object-fit: fill;
 
 }
+
+
+/*.pagination > li > a:focus {*/
+    /*color: #8f8f91;*/
+    /*background-color: #d4d4d6;*/
+/*}*/
+/*.pagination > li > a:hover {*/
+    /*color: #8f8f91;*/
+    /*background-color: #d4d4d6;*/
+/*}*/
+/*.pagination > li > span:focus {*/
+    /*color: #8f8f91;*/
+    /*background-color: #d4d4d6;*/
+/*}*/
+/*.pagination > li > span:hover {*/
+    /*z-index: 3;*/
+    /*color: #d4d4d6;*/
+    /*background-color: #b6b6b8;*/
+    /*border-color: #aaaaaa;*/
+/*}*/
+
+/* bootstrap links colors*/
+/*.pagination > li > a,*/
+/*.pagination > li > span { color: #111111; }*/
+/*.pagination > .active > a {*/
+    /*color: #8f8f91;*/
+    /*background-color: #d4d4d6;*/
+/*}*/
+/*.pagination > li > a:hover {*/
+    /*color: #8f8f91;*/
+    /*background-color: #d4d4d6;*/
+/*}*/
+/*.pagination > .active > a:focus {*/
+    /*color: #8f8f91;*/
+    /*background-color: #d4d4d6;*/
+/*}*/
+
+/*.pagination > .active > span,*/
+/*.pagination > .active > span:focus,*/
+/*pagination > .active > span:hover { background-color: #ff001e; border-color: #e40035; }*/
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #646466; // use your own color here
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #ff001e;
+    border-color: #ff001e;
+}

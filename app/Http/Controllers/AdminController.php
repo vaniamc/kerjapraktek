@@ -339,21 +339,14 @@ class AdminController extends Controller
 
     public function submitEditGallery(Request $request, $id)
     {
-        if($request->file('info_poster')==null){
-            DB::table('gallery')->where('gallery_id', $id)->update([
-                'album_id' => $request->input('album_id'),
-            ]);
-        }
-        else{
-            $imageName = time().'.'.$request->file('info_poster')->getClientOriginalExtension();
-            DB::table('gallery')->where('gallery_id', $id)->update([
-                'album_id' => $request->input('album_id'),
-                'gallery_path' => $imageName,
-            ]);
-            $request->file('info_poster')->move(
-                base_path() . '/public/images/gallery/', $imageName
-            );
-        }
+        $imageName = time().'.'.$request->file('info_poster')->getClientOriginalExtension();
+        DB::table('gallery')->where('gallery_id', $id)->update([
+            'album_id' => $request->input('album_id'),
+            'gallery_path' => $imageName,
+        ]);
+        $request->file('info_poster')->move(
+            base_path() . '/public/images/gallery/', $imageName
+        );
         return redirect('dashboard/gallery');
     }
 

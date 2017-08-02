@@ -20,6 +20,11 @@
 				{{Form::label('title', 'Picture')}}
 		        <input name="info_poster" type="file" class="form-control" id="imgInp">
 		        <img id="blah" src="{{asset('images/gallery/'.$gallery->gallery_path)}}" alt="your image" class="img-responsive" />
+                @if ($errors->has('info_poster'))
+                    <span class="help-block" style="color:red;">
+                        <strong>{{ $errors->first('info_poster') }}</strong>
+                    </span>
+                @endif
 	        </div>
 	        <div class="form-group">
 	        	{{Form::submit('Update Image',array('class' => 'btn btn-primary btn-sm'))}}

@@ -11,6 +11,11 @@
 			<div class="form-group">
 				{{Form::label('title', 'Video')}}
 		        <input name="video-link" type="file" class="form-control" required>
+                @if ($errors->has('video-link'))
+                    <span class="help-block" style="color:red;">
+                        <strong>{{ $errors->first('video-link') }}</strong>
+                    </span>
+                @endif
 	        </div>
 	        <div class="form-group">
 	        	{{Form::submit('Save Video',array('class' => 'btn btn-primary btn-sm'))}}

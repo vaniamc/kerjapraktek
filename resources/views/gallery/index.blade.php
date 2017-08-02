@@ -28,24 +28,34 @@
 			<h4 class="section-title"><span>Telkom Corporate University</span>Gallery</h4>
 			<div class="slider">
 				<div class="row row-slider-gutter">
-					@foreach($album as $key => $row)
-					<div class="col-md-4 slider-item-small">
-						<figure class="thumbnail-image">
-							<a href="{{url('gallery',$row->album_id)}}"><img src="{{asset('images/gallery/'.$row->gallery[0]->gallery_path)}}" alt="" style="object-fit: cover;"></a>
-							<figcaption>
-								<h2><a href="{{url('gallery',$row->album_id)}}">{{$row->album_name}}</a></h2>
-								<div class="post-meta">
-									<?php
-                                        $y = substr($row->created_at, 0, 4);
-                                        $m = substr($row->created_at, 5, 2);
-                                        $d = substr($row->created_at, 8, 2);
-                                    ?>
-									<span>{{$d}}/{{$m}}/{{$y}}</span>
-								</div>
-							</figcaption>
-						</figure>
-					</div>
-					@endforeach
+					@if(count($album) < 1)
+						<center><h4 style="color: #B81D1D">There is no album</h4></center>
+					@else
+						@foreach($album as $key => $row)
+						<div class="col-md-4 slider-item-small">
+							<figure class="thumbnail-image">
+								<a href="{{url('gallery',$row->album_id)}}">
+									@if(count($row->gallery) < 1)
+										<img src="{{asset('images/demo/720x720-2.jpg')}}" alt="" style="object-fit: cover;">
+									@else
+										<img src="{{asset('images/gallery/'.$row->gallery[0]->gallery_path)}}" alt="" style="object-fit: cover;">
+									@endif
+								</a>
+								<figcaption>
+									<h2><a href="{{url('gallery',$row->album_id)}}">{{$row->album_name}}</a></h2>
+									<div class="post-meta">
+										<?php
+	                                        $y = substr($row->created_at, 0, 4);
+	                                        $m = substr($row->created_at, 5, 2);
+	                                        $d = substr($row->created_at, 8, 2);
+	                                    ?>
+										<span>{{$d}}/{{$m}}/{{$y}}</span>
+									</div>
+								</figcaption>
+							</figure>
+						</div>
+						@endforeach
+					@endif
 				</div>
 
 			</div>

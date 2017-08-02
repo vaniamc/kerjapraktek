@@ -33,6 +33,11 @@
 		        @else
 		        	<img id="blah" src="{{asset('images/blog/'.$blog->blog_picture)}}" alt="your image" class="img-responsive" />
 		        @endif
+				@if ($errors->has('blog_picture'))
+		            <span class="help-block" style="color:red;">
+		                <strong>{{ $errors->first('blog_picture') }}</strong>
+		            </span>
+		        @endif
 	        </div>
 	        <div class="form-group">
 	        	{{Form::label('body', 'Content')}}

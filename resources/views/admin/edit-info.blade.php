@@ -25,6 +25,11 @@
                 @else
                     <img id="blah" src="{{asset('images/info/'.$info->info_poster)}}" alt="your image" class="img-responsive" />
                 @endif
+                @if ($errors->has('info-poster'))
+                    <span class="help-block" style="color:red;">
+                        <strong>{{ $errors->first('info-poster') }}</strong>
+                    </span>
+                @endif
 	        </div>
 	        <div class="form-group">
 	        	{{Form::submit('Update Info',array('class' => 'btn btn-primary btn-sm'))}}

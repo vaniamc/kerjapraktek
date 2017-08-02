@@ -16,6 +16,11 @@
 				{{Form::label('title', 'Picture')}}
 		        <input name="info-poster" type="file" class="form-control" id="imgInp" required>
 		        <img id="blah" src="#" alt="your image" hidden/>
+                @if ($errors->has('info-poster'))
+                    <span class="help-block" style="color:red;">
+                        <strong>{{ $errors->first('info-poster') }}</strong>
+                    </span>
+                @endif
 	        </div>
 	        <div class="form-group">
 	        	{{Form::submit('Save Info',array('class' => 'btn btn-primary btn-sm'))}}

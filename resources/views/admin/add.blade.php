@@ -29,6 +29,11 @@
 				{{Form::label('title', 'Picture')}}
 		        <input name="blog_picture" type="file" class="form-control" id="imgInp">
 		        <img id="blah" src="#" alt="your image" hidden/>
+				@if ($errors->has('blog_picture'))
+		            <span class="help-block" style="color:red;">
+		                <strong>{{ $errors->first('blog_picture') }}</strong>
+		            </span>
+		        @endif
 	        </div>
 	        <div class="form-group">
 	        	{{Form::label('body', 'Content')}}

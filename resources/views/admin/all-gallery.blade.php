@@ -18,7 +18,13 @@
           @foreach($gallery as $row)
           <tr>
               <td class="text-center">{{$no++}}</td>
-              <td class="text-center">{{$row->album->album_name}}</td>
+              <td class="text-center">
+                @if($row->album == NULL)
+                  -
+                @else
+                  {{$row->album->album_name}}
+                @endif
+              </td>
               <td class="text-center"><img src="{{asset('images/gallery/'.$row->gallery_path)}}" class="img-responsive" style="max-width: 30%"></td>
               <td class="text-center">
                 <a href="{{url('dashboard/edit-gallery', $row->gallery_id )}}" class="btn btn-primary btn-xs"><span>Edit </span><span class="glyphicon glyphicon-pencil"></span></a>

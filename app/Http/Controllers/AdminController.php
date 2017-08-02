@@ -444,17 +444,24 @@ class AdminController extends Controller
         $this->validate($request, [
             'info_poster' => 'image|mimes:jpeg,bmp,png|max:2000'
         ]);
+        if($request->file('info_poster')==null){
+            DB::table('gallery')->where('gallery_id', $id)->update([
+                'album_id' => $request->input('album_id')
+            ]);
+        }
+        else{
         //memberi nama pada foto yang diunggah
-        $imageName = time().'.'.$request->file('info_poster')->getClientOriginalExtension();
-        //memperbarui data foto
-        DB::table('gallery')->where('gallery_id', $id)->update([
-            'album_id' => $request->input('album_id'),
-            'gallery_path' => $imageName,
-        ]);
-        //memindahkan file foto
-        $request->file('info_poster')->move(
-            base_path() . '/public/images/gallery/', $imageName
-        );
+            $imageName = time().'.'.$request->file('info_poster')->getClientOriginalExtension();
+            //memperbarui data foto
+            DB::table('gallery')->where('gallery_id', $id)->update([
+                'album_id' => $request->input('album_id'),
+                'gallery_path' => $imageName,
+            ]);
+            //memindahkan file foto
+            $request->file('info_poster')->move(
+                base_path() . '/public/images/gallery/', $imageName
+            );
+        }
         return redirect('dashboard/gallery');
     }
 

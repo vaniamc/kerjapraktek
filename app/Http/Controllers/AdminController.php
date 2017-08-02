@@ -444,11 +444,13 @@ class AdminController extends Controller
         $this->validate($request, [
             'info_poster' => 'image|mimes:jpeg,bmp,png|max:2000'
         ]);
+        //apabila foto tidak diubah maka hanya diupdate nama albumnya
         if($request->file('info_poster')==null){
             DB::table('gallery')->where('gallery_id', $id)->update([
                 'album_id' => $request->input('album_id')
             ]);
         }
+        //apabila foto diubah maka diupdate nama album dan fotonya
         else{
         //memberi nama pada foto yang diunggah
             $imageName = time().'.'.$request->file('info_poster')->getClientOriginalExtension();

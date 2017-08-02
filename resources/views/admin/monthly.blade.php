@@ -22,7 +22,7 @@
 		        <a href="{{url('dashboard/schedule/monthly/edit', $schedule->schedule_id )}}" class="btn btn-primary"><span>Upload Video </span><span><i class="fa fa-video-camera"></i></span></a>
 		        @else
 		        <video controls>
-		        	<source src="{{asset('video/monthly/'.$schedule->schedule_link)}}" type="video/mp4">
+		        	<source src="{{asset('video/monthly/'.$schedule->schedule_link)}}">
 		        </video>
 		        @endif
 	        </div>

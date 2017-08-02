@@ -505,7 +505,7 @@ class AdminController extends Controller
     public function submitMonthlySchedule(Request $request, $id)
     {
         $this->validate($request, [
-            'video-link' => 'mimes:video/x-msvideo,video/mp4|max:20000'
+            'video-link' => 'mimetypes:video/x-msvideo,video/mpeg,video/mp4|max:20000'
         ]);
         //memberi nama video
         $videoName = 'monthly'.'.'.$request->file('video-link')->getClientOriginalExtension();
@@ -549,7 +549,7 @@ class AdminController extends Controller
     public function submitWeeklySchedule(Request $request, $id)
     {
         $this->validate($request, [
-            'video-link' => 'mimes:video/x-msvideo,video/mp4|max:20000'
+            'video-link' => 'mimetypes:video/x-msvideo,video/mpeg,video/mp4|max:20000'
         ]);
         //memberi nama video
         $videoName = 'weekly'.'.'.$request->file('video-link')->getClientOriginalExtension();
